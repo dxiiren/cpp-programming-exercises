@@ -1,0 +1,37 @@
+#include <iostream>
+using namespace std;
+
+void BMI (double weight , double height, double & bmi)
+{
+     bmi = weight/(height*height);
+     
+}
+
+int main ()
+{
+    double bmi , height , weight ;
+    string person;
+    
+    cout<<"Please enter your height (m) :";
+    cin>>height;
+    
+    cout<<"Please enter your weight (kg) :";
+    cin>>weight;
+    
+    BMI(height,weight,bmi);
+    
+    if (bmi<20)
+         person="unhealthy";
+    
+    else if (bmi>20 && bmi<25)
+         person="healthy";
+    
+    else
+         person = "underweight";
+         
+         
+    cout<<"\nYour status is = "<<person;
+    
+    return 0;
+    
+}
