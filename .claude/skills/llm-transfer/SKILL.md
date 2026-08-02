@@ -296,6 +296,7 @@ That's the shape of every handoff - scale each section up or down to fit the tas
 
 ## Evolution Log
 
-- Ported from employee-salary-counter for cpp-programming-exercises - same 9-section
+- Ported from the since-retired standalone employee-payroll repo (this collection's
+  assessment3-employee-payroll.cpp is the canonical version) for cpp-programming-exercises - same 9-section
   framework and dual-mode (agentic brief vs cold master prompt); personas, worked example,
   and stack references adapted to the 57-program `src/` collection.

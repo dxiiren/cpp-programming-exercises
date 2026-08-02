@@ -24,10 +24,9 @@ Every rename is recorded in
 
 ## Where is `assesment3try.cpp`? The archive had 58 C++ files.
 
-It's byte-identical to the source published as
-[`dxiiren/employee-salary-counter`](https://github.com/dxiiren/employee-salary-counter),
-so it lives there. This repo keeps the earlier draft as
-`assessment3-employee-payroll.cpp`.
+It was excluded because it had already been published as a standalone repo. That
+standalone copy was retired; this collection's `assessment3-employee-payroll.cpp` (the
+earlier draft of the same assignment) is the canonical version.
 
 ## Why w64devkit instead of MSYS2 / Visual Studio?
 

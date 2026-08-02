@@ -27,11 +27,10 @@ Imported 2026-08 from the university archive folder
 - Only `.cpp` sources were copied — the archive's per-program `.exe` builds were left behind.
 - Two orphan executables (`EX4 , q2.exe`, `EX4 , Q7.exe`) had no matching source and were
   not imported.
-- `assesment3try.cpp` (the final iteration of Assessment 3) is **byte-identical** to the
-  source already published as
-  [`dxiiren/employee-salary-counter`](https://github.com/dxiiren/employee-salary-counter)
-  and was excluded; the earlier draft `Assessment3.cpp` is kept here as
-  `assessment3-employee-payroll.cpp`.
+- `assesment3try.cpp` (the final iteration of Assessment 3) was excluded because it had
+  already been published as a standalone repo. That standalone copy was retired; this
+  collection's `assessment3-employee-payroll.cpp` (the earlier draft, originally
+  `Assessment3.cpp`) is the canonical version.
 - No sanitization was needed: no matric/IC numbers, names, or credentials appear in any file.
 
 ## Filename mapping (original archive name → `src/` name)

@@ -150,6 +150,7 @@ Five pillars, distilled from a real overnight failure and its fix:
 
 ## Evolution Log
 
-- Ported from employee-salary-counter for cpp-programming-exercises - same interrogation -> confirm-until-100% ->
+- Ported from the since-retired standalone employee-payroll repo (this collection's
+  assessment3-employee-payroll.cpp is the canonical version) for cpp-programming-exercises - same interrogation -> confirm-until-100% ->
   stop-proof goal-file flow and the five stop-proof pillars; bootstrap/verification examples
   adapted to the plain-C++ `just build`/`just run` stack (no deploy targets here).

@@ -185,6 +185,7 @@ Grounded in primary sources, adversarially fact-checked (deep-research run):
 
 ## Evolution Log
 
-- Ported from employee-salary-counter for cpp-programming-exercises - same pointer-based,
+- Ported from the since-retired standalone employee-payroll repo (this collection's
+  assessment3-employee-payroll.cpp is the canonical version) for cpp-programming-exercises - same pointer-based,
   opt-in-resume design; commands + freshness checks adapted to the 57-program collection
   (`just build-all`, per-program `just run <name>` with `sample-inputs\`).

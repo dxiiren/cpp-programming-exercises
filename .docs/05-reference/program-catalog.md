@@ -89,10 +89,10 @@ committed `sample-inputs\<name>.txt`, so `just run <name>` is unattended.
 | --- | --- | --- |
 | `assessment3-employee-payroll` | Weekly payroll: tiered gross (RM8 ≤40h, RM12 41–50h, RM16 >50h), 8%+11%+RM10 deduction, net pay; closing head-count / highest-paid / underpaid summary | sample |
 
-**Excluded:** `assesment3try.cpp` — the final iteration of this assessment — is
-byte-identical to [`dxiiren/employee-salary-counter`](https://github.com/dxiiren/employee-salary-counter)
-and lives there instead. The `assessment3-employee-payroll` kept here is the earlier
-draft (it compares `gross` rather than monthly salary for the highest/underpaid summary).
+**Excluded:** `assesment3try.cpp` — the final iteration of this assessment — was published
+as a standalone repo instead. That standalone copy was retired; this collection's
+`assessment3-employee-payroll.cpp` is the canonical version — the earlier draft (it
+compares `gross` rather than monthly salary for the highest/underpaid summary).
 
 ## Known coursework quirks (preserved, do not "fix" casually)
 

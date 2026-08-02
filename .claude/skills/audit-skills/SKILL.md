@@ -114,7 +114,8 @@ evolving it:
 
 ## Evolution Log
 
-- Ported from employee-salary-counter for cpp-programming-exercises with `audit.py` copied
+- Ported from the since-retired standalone employee-payroll repo (this collection's
+  assessment3-employee-payroll.cpp is the canonical version) for cpp-programming-exercises with `audit.py` copied
   verbatim (the script is repo-neutral): checks `NO_SKILL_MD`, `FRONTMATTER`,
   `BAD_MODEL` (`{sonnet, opus}`), `SKILL_BOM`, `MISSING`/`ORPHANED` (README +
   CLAUDE), and `CRED_EXPOSURE`. Invocation uses `uv run` since Python here is

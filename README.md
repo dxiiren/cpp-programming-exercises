@@ -54,6 +54,38 @@ Run `just` with no arguments to list every recipe. The ones you'll use daily:
 | `just clean` | Delete the compiled `out\` folder |
 | `just claudex` | Launch Claude Code (Sonnet, all permissions) |
 
+## Sample run
+
+`just run movie-ticket` compiles the program, then feeds it the committed
+`sample-inputs\movie-ticket.txt` as stdin — `15`, `2`, `2`, `1`, `1` (ticket price RM15,
+then the head-count for each age category):
+
+```text
+> just run movie-ticket
+---------------------
+Calculate The Total Price of Tickets
+---------------------
+
+---->Press Enter to continue<----
+
+1)Enter the price of the ticket =RM
+2)Enter the number of people according to their category ;
+
+-------------------------------------------------------
+ Senior Citizen = ( 60 YEARS OLD & ABOVE )
+ Adult          = ( 13 ~> 59 YEARS OLD )
+ Children       = ( 4 ~> 12 YEARS OLD )
+ Kid            = ( 3 YEARS OLD & BELOW )
+-------------------------------------------------------
+
+Senior Citizen = Adult = Children = Kid =
+~ The total price of the ticket is =RM 55.5 ~
+ Thank You
+```
+
+(Compile lines from the `build` recipe omitted. The prompts run together because stdin is
+redirected, so nothing is echoed between them — see Troubleshooting below.)
+
 ## Program catalog
 
 Names are the `just run <name>` arguments (the `.cpp` files in `src\`). Programs marked
@@ -143,11 +175,10 @@ Names are the `just run <name>` arguments (the `.cpp` files in `src\`). Programs
 | --- | --- | --- |
 | `assessment3-employee-payroll` | Tiered weekly payroll: gross, deductions, net; headcount/highest-paid/underpaid summary (sample input committed) | stdin |
 
-**Cross-reference:** the final iteration of Assessment 3, `assesment3try.cpp`, is
-byte-identical to the source already published as
-[`dxiiren/employee-salary-counter`](https://github.com/dxiiren/employee-salary-counter)
-and is therefore excluded from this collection. `assessment3-employee-payroll` here is the
-earlier draft of the same assignment.
+**Cross-reference:** the final iteration of Assessment 3, `assesment3try.cpp`, was once
+published as a standalone repo. That standalone copy was retired; this collection's
+`assessment3-employee-payroll.cpp` (the earlier draft of the same assignment) is the
+canonical version.
 
 ## Troubleshooting
 

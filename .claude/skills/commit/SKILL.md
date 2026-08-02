@@ -131,6 +131,7 @@ scope: src, input, tooling, docs, skills
 
 ## Evolution Log
 
-- Ported from employee-salary-counter for cpp-programming-exercises: same fast-path/scoped
+- Ported from the since-retired standalone employee-payroll repo (this collection's
+  assessment3-employee-payroll.cpp is the canonical version) for cpp-programming-exercises: same fast-path/scoped
   pipeline and stale-lock preflight (this repo has no hooks either); remapped scopes to the
   57-program `src/` collection layout, `sample-inputs/`, and the git-ignored `out/` build dir.

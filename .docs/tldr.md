@@ -4,8 +4,8 @@
 
 57 standalone C++ console programs from UiTM's CSC126 course, copied out of the archived
 coursework folder, renamed to kebab-case in a flat `src/`, and preserved as written.
-`assesment3try.cpp` was excluded (byte-identical to the published
-`employee-salary-counter` repo). No personal data needed stripping. The doc carries the
+`assesment3try.cpp` was excluded (its standalone copy was retired; this collection's
+`assessment3-employee-payroll.cpp` is the canonical version). No personal data needed stripping. The doc carries the
 full original-name → new-name mapping table.
 
 ## [02-setup/getting-started.md](02-setup/getting-started.md)
