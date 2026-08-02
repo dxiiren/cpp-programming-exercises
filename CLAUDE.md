@@ -31,6 +31,8 @@ code and no linking between files. Preserved coursework (2019-era), published 20
 cpp-programming-exercises/
   src/                     # 57 standalone programs — one main() per .cpp
   sample-inputs/           # canned stdin consumed by `just run <name>` (4 programs)
+  tests/                   # golden-output harness — run-tests.ps1 + expected/ (11 goldens);
+                           # `just test` must stay 11/11 PASS
   out/                     # `just build`/`build-all` output — git-ignored
   .docs/                   # numbered documentation set
   .claude/                 # skills, hooks, settings
