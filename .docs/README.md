@@ -55,7 +55,7 @@ one toolchain, one task runner.
 | Document | What it covers |
 | --- | --- |
 | [`commands.md`](05-reference/commands.md) | Every just recipe + why the recipes are shaped that way |
-| [`program-catalog.md`](05-reference/program-catalog.md) | All 57 programs, input behavior, known coursework quirks |
+| [`program-catalog.md`](05-reference/program-catalog.md) | All 57 programs, input behavior, fixed coursework bugs + remaining quirks |
 | [`project-layout.md`](05-reference/project-layout.md) | Annotated file tree and naming conventions |
 
 ## 06-troubleshooting

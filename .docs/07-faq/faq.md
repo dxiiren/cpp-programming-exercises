@@ -1,15 +1,20 @@
 # FAQ
 
-> **TL;DR** It's preserved university coursework: bugs and style stay unless a change is
-> the explicit goal; the toolchain is a portable g++ at a pinned path; four programs run
-> unattended, the rest are interactive.
+> **TL;DR** It's preserved university coursework: remaining quirks and style stay unless
+> a change is the explicit goal (the documented logic bugs were fixed in 2026); the
+> toolchain is a portable g++ at a pinned path; ten programs run unattended, the rest are
+> interactive.
 
 ## Why do some programs have obvious bugs?
 
-Because they're the historical record of a first-year programming course. The known ones
-(swapped BMI arguments, uninitialized accumulators, misleading names) are cataloged in
-[`../05-reference/program-catalog.md`](../05-reference/program-catalog.md). Fixing them is
-fine as a deliberate change with its own branch/PR — never as a drive-by.
+Because they're the historical record of a first-year programming course. The documented
+logic bugs (swapped BMI arguments, uninitialized accumulators, the duplicated `'E'` zone
+test, the "next day" label, a debug print) were fixed in a deliberate 2026 maintenance
+pass — the catalog's fixed-bugs table in
+[`../05-reference/program-catalog.md`](../05-reference/program-catalog.md) records each
+one, and goldens pin the corrected behavior. The remaining quirks in its known-quirks
+table stay; fixing one is fine as a deliberate change with its own branch/PR — never as
+a drive-by.
 
 ## Why is `src/` flat instead of foldered by topic?
 
@@ -34,10 +39,10 @@ A portable zip extracted to `%LOCALAPPDATA%\Programs\w64devkit` — no installer
 interactivity, no system-wide PATH pollution, and setup.ps1 can verify it by path. The
 exercises need nothing beyond a stock g++.
 
-## Why does `just run <name>` only work unattended for four programs?
+## Why does `just run <name>` only work unattended for ten programs?
 
 Sample inputs are hand-built to match each program's exact cin read order, and only the
-representative four have them. Add a `sample-inputs\<name>.txt` (exact read order, final
+representative ten have them. Add a `sample-inputs\<name>.txt` (exact read order, final
 `y` for y/n loops) and `just run <name>` picks it up automatically.
 
 ## Can I add a build system (CMake) or tests?

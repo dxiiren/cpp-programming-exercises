@@ -14,8 +14,11 @@ Every program is a small run-to-completion CLI that reads from `cin` (49 of 57) 
 prints (8 of 57). The full program-by-program catalog lives in
 [`../05-reference/program-catalog.md`](../05-reference/program-catalog.md) and the README.
 
-The code is **preserved coursework**: implicit-int `main()`, uninitialized accumulators,
-a swapped-argument BMI bug, and leftover debug prints are kept as historical record. All
+The code is **preserved coursework**: implicit-int `main()`, Malay comments, and the
+remaining catalog quirks are kept as historical record. (The documented logic bugs —
+uninitialized accumulators, a swapped-argument BMI call, a duplicated zone test, a
+mislabeled output, a leftover debug print — were fixed in a 2026 maintenance pass; see
+the catalog's fixed-bugs table.) All
 57 files compile cleanly with g++ 16.1.0 (8 files carry one `-Wall -Wextra` warning each —
 see [`../06-troubleshooting/common-issues.md`](../06-troubleshooting/common-issues.md)).
 

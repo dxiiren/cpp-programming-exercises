@@ -51,7 +51,7 @@ Run `just` with no arguments to list every recipe. The ones you'll use daily:
 | `just build-all` | Compile all 57 programs; stop at the first error; print a PASS/FAIL summary |
 | `just run <name>` | Compile, then run — `sample-inputs\<name>.txt` as stdin if present, else interactive |
 | `just run-interactive <name>` | Compile, then run reading YOUR typed input |
-| `just test` | Golden-output suite: build + run the 11 covered programs, diff stdout vs `tests\expected\` |
+| `just test` | Golden-output suite: build + run the 17 covered programs, diff stdout vs `tests\expected\` |
 | `just clean` | Delete the compiled `out\` folder |
 | `just claudex` | Launch Claude Code (Sonnet, all permissions) |
 
@@ -93,17 +93,20 @@ redirected, so nothing is echoed between them — see Troubleshooting below.)
 in `tests\expected\`, it compiles the program, runs it — stdin from
 `sample-inputs\<name>.txt` when one exists, `< NUL` for the no-input demos — and diffs
 stdout against the golden (CRLF-normalized). One `[PASS]`/`[FAIL]` line per program, a
-summary at the end, exit 1 on any failure. The programs themselves are untouched: the
-goldens pin their output as-is, coursework quirks included.
+summary at the end, exit 1 on any failure. The goldens pin each program's behavior —
+including the corrected behavior of the six programs whose documented coursework bugs
+were fixed (see the fixed-bugs table in
+[`.docs/05-reference/program-catalog.md`](.docs/05-reference/program-catalog.md)); the
+remaining quirks stay pinned as-is.
 
-**Coverage: 11 of 57 programs.**
+**Coverage: 17 of 57 programs.**
 
 | Group | Count | Programs |
 | --- | --- | --- |
-| Committed sample input | 4 | `assessment3-employee-payroll`, `electric-bill`, `fibonacci-series`, `movie-ticket` |
+| Committed sample input | 10 | `assessment3-employee-payroll`, `electric-bill`, `ex4-q6-delivery-package`, `ex4-q7-total-delivery`, `ex4-q9-bmi-reference`, `ex5-q6-car-sales`, `fibonacci-series`, `movie-ticket`, `previous-day`, `untitled2-grade-counter` |
 | No stdin (deterministic demos/patterns) | 7 | `boolean`, `ex3-q6a-pattern`, `ex3-q6b-pattern`, `ex3-q6c-pattern`, `increment-operators`, `sum-of-odd-numbers`, `test` |
 
-The other 46 programs are **excluded** because they read stdin interactively and have no
+The other 40 programs are **excluded** because they read stdin interactively and have no
 committed sample input — there is nothing deterministic to pin. No program in the
 collection uses timestamps or `rand()`, so none is excluded for nondeterminism. To cover
 another program, commit a `sample-inputs\<name>.txt` matching its exact cin read order,
@@ -113,7 +116,7 @@ run it once via `just run <name>`, and save the verified stdout as
 ## Program catalog
 
 Names are the `just run <name>` arguments (the `.cpp` files in `src\`). Programs marked
-"input" read from stdin; the four with a committed sample input run unattended via
+"input" read from stdin; the ten with a committed sample input run unattended via
 `just run`. Original coursework filenames are mapped in
 [`.docs/01-overview/project-overview.md`](.docs/01-overview/project-overview.md).
 
@@ -177,9 +180,9 @@ Names are the `just run <name>` arguments (the `.cpp` files in `src\`). Programs
 | `ex3-q6c-pattern` | `*` triangle-plus-block pattern | none |
 | `ex3-q9-student-activity-points` | Activity points per student; qualified count, highest, lowest | stdin |
 | `ex4-q4-even-odd-function` | Parity via a reference-parameter function | stdin |
-| `ex4-q6-delivery-package` | Delivery charge from weight and zone (two helper functions) | stdin |
-| `ex4-q7-total-delivery` | 20 parcels' charges with highest/lowest/total | stdin |
-| `ex4-q9-bmi-reference` | BMI via a reference out-parameter (arguments passed swapped — coursework bug, preserved) | stdin |
+| `ex4-q6-delivery-package` | Delivery charge from weight and zone (two helper functions; sample input committed) | stdin |
+| `ex4-q7-total-delivery` | 20 parcels' charges with highest/lowest/total (sample input committed) | stdin |
+| `ex4-q9-bmi-reference` | BMI via a reference out-parameter (swapped-argument coursework bug fixed; sample input committed) | stdin |
 | `ex4-q10-next-day` | Next calendar day, month/leap handling | stdin |
 | `ex4-q10b-next-week` | Date one week ahead with leap-year February | stdin |
 | `ex4-q10c-next-10-weeks` | Next day plus 4 weeks ahead (name says 10; the loop runs 4) | stdin |
@@ -188,10 +191,10 @@ Names are the `just run <name>` arguments (the `.cpp` files in `src\`). Programs
 | `ex5-q4-array-merge-compare` | Two 5-element arrays: element sums and element-wise max | stdin |
 | `ex5-q5-grade-counter` | Grade tally (A–D) with a y/n stop loop plus most popular grade | stdin |
 | `ex5-q5-grade-counter-v2` | Grade tally for exactly 10 marks | stdin |
-| `ex5-q6-car-sales` | Car sales per type against fixed prices: totals and most popular | stdin |
+| `ex5-q6-car-sales` | Car sales per type against fixed prices: totals and most popular (sample input committed) | stdin |
 | `ex8-q4-date-formatter` | Numeric day/month/year to "1 January 2020", loops until 0 | stdin |
-| `previous-day` | Previous calendar day (output label says "next day" — coursework quirk) | stdin |
-| `untitled2-grade-counter` | Looped grade counter variant; keeps a leftover debug print | stdin |
+| `previous-day` | Previous calendar day (mislabeled "next day" output fixed; sample input committed) | stdin |
+| `untitled2-grade-counter` | Looped grade counter variant (debug leftover removed; sample input committed) | stdin |
 
 ### Assessments
 
@@ -219,8 +222,9 @@ g++ spawns its assembler via PATH. Prepend the w64devkit bin dir first
 
 ### `just run <name>` appears to hang with no output
 
-The program is waiting on stdin. Only `assessment3-employee-payroll`, `movie-ticket`,
-`electric-bill`, and `fibonacci-series` have committed sample inputs — every other
+The program is waiting on stdin. Only the ten programs listed under Testing (from
+`assessment3-employee-payroll` to `untitled2-grade-counter`) have committed sample
+inputs — every other
 stdin-reading program runs interactively (the recipe prints an `[INFO]` note first), so
 type at its prompts. If a program with a sample input hangs, the input file drifted from
 the cin read order — a failed `cin >>` fail-states the stream and any y/n stop loop never
@@ -246,8 +250,8 @@ More in [`.docs/06-troubleshooting/common-issues.md`](.docs/06-troubleshooting/c
 ```
 cpp-programming-exercises/
   src/                     # 57 standalone programs — one main() per .cpp, kebab-case names
-  sample-inputs/           # canned stdin for `just run` (4 programs covered)
-  tests/                   # golden-output harness: run-tests.ps1 + expected/ (11 goldens)
+  sample-inputs/           # canned stdin for `just run` (10 programs covered)
+  tests/                   # golden-output harness: run-tests.ps1 + expected/ (17 goldens)
   out/                     # compiled exes from `just build`/`build-all` — git-ignored
   .docs/                   # numbered documentation set — start at .docs/tldr.md
   .claude/                 # Claude Code skills, hooks, settings

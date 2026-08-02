@@ -25,7 +25,7 @@ int zone ( char delivery ) {
 	else if(toupper(delivery)=='E')
 	     return 15;
 	     
-	else if(toupper(delivery)=='E')
+	else if(toupper(delivery)=='W')
 	    return 20;
 	else    
 	return 0;
@@ -34,7 +34,7 @@ int zone ( char delivery ) {
 int main() {
 
     char area;
-    double weight , charge , total , sumall , highest=0 , lowest=99999;
+    double weight , charge , total , sumall=0 , highest=0 , lowest=99999;
     int n;
     
     for (n=0 ; n<20 ; n++ )

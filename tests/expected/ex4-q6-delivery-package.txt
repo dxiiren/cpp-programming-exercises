@@ -1,0 +1,5 @@
+Please enter weight : N = North 
+S = South 
+E = East 
+W = West 
+Please enter delivery zone ( N/S/E/W) : The total charge is = RM 65.1

@@ -18,7 +18,7 @@ gh — idempotent), reopen PowerShell, then `just list`, `just build-all` (expec
 
 Branch, edit one standalone program, `just build <name>` + `just run <name>`, keep
 `sample-inputs\<name>.txt` in sync with any cin change, `just build-all` + `just test`
-(11/11 golden diffs) as the gates, then `/pre-pr-review`, `/commit`, `/create-pr`. House
+(17/17 golden diffs) as the gates, then `/pre-pr-review`, `/commit`, `/create-pr`. House
 rules: preserve coursework quirks, no build-system creep, never commit `out\`.
 
 ## [04-deployment/deployment.md](04-deployment/deployment.md)
@@ -31,15 +31,16 @@ you ever must hand one over.
 
 The just recipes: `list`, `build <name>`, `build-all` (stops at first error, prints
 PASS/FAIL summary), `run <name>` (canned stdin when a sample exists, else interactive),
-`run-interactive <name>`, `test` (golden-output suite over 11 covered programs), `clean`,
+`run-interactive <name>`, `test` (golden-output suite over 17 covered programs), `clean`,
 plus the claude launchers. Explains the pinned g++ path, the PATH-prepend for `as`, and
 the BOM-avoiding cmd redirect.
 
 ## [05-reference/program-catalog.md](05-reference/program-catalog.md)
 
 The full inventory grouped Basics / Selection / Loops / Exercise sets / Assessments, with
-each program's input behavior (none / stdin / committed sample) and a table of known
-coursework quirks that are preserved on purpose.
+each program's input behavior (none / stdin / committed sample), the table of coursework
+bugs fixed in the 2026 maintenance pass, and the remaining known quirks preserved on
+purpose.
 
 ## [05-reference/project-layout.md](05-reference/project-layout.md)
 
@@ -52,11 +53,11 @@ programs, `tests/` (golden harness + expected outputs), git-ignored `out/`, `.do
 Real symptoms with fixes: g++ missing → setup.ps1; `cannot execute 'as'` → PATH-prepend;
 silent "hang" → the program is reading stdin interactively; infinite prompt loop → sample
 input drifted from the cin read order; garbage first value → PowerShell pipe BOM; the
-8-warning `-Wall -Wextra` baseline; wrong-looking results that are original coursework
-bugs.
+8-warning `-Wall -Wextra` baseline; wrong-looking results that are remaining preserved
+quirks (the documented logic bugs were fixed in 2026).
 
 ## [07-faq/faq.md](07-faq/faq.md)
 
-Why bugs stay (it's an archive), why `src/` is flat, why files were renamed, where
-`assesment3try.cpp` went, why w64devkit, why only four programs run unattended, and why
-there's no CMake or tests.
+Which bugs were fixed vs which quirks stay (it's an archive), why `src/` is flat, why
+files were renamed, where `assesment3try.cpp` went, why w64devkit, why only ten programs
+run unattended, and why there's no CMake.

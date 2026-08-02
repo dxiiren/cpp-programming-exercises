@@ -1,0 +1,10 @@
+Enter your mark = Do you want to stop (y/n) ? : 
+Enter your mark = Do you want to stop (y/n) ? : 
+Enter your mark = Do you want to stop (y/n) ? : 
+The number of students who's get grade 'A' is = 1
+The number of students who's get grade 'B' is = 2
+The number of students who's get grade 'C' is = 0
+The number of students who's get grade 'D' is = 0
+
+The most popular grade is :- 
+Grade B , 

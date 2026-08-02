@@ -71,7 +71,7 @@ Verify each finding against the actual code before reporting it.
 | 5   | **Program independence**     | issue      | Every `src\*.cpp` stays a standalone translation unit with its own `main()` — no cross-file includes, no shared headers, no linking two exercises together. New files follow the kebab-case `<topic>.cpp` / `exN-qM-<topic>.cpp` naming. |
 | 6   | **Loop/sentinel semantics**  | issue      | The looping programs use `while (toupper(answer) != 'Y')` on "Do you want to stop ? (y/n)" — `y` STOPS. Inverting the prompt or the test without the other breaks the committed input files. |
 | 7   | **Catalog sync**             | issue      | A renamed/added/removed program MUST be reflected in the README catalog table and `.docs/05-reference/program-catalog.md` — the catalog is the collection's index; rot here is a blocking finding. |
-| 8   | **No debug leftovers**       | issue      | `cout << "here"`-style debugging, commented-out dead blocks, `TODO` without follow-up. (The committed `untitled2-grade-counter.cpp` `gdjgjgw` line is preserved coursework — don't flag it unless touched.) |
+| 8   | **No debug leftovers**       | issue      | `cout << "here"`-style debugging, commented-out dead blocks, `TODO` without follow-up. |
 | 9   | **Naming & structure**       | suggestion | New code follows C++ conventions (initialize at declaration, `int main()`, pass by const ref where sensible) even though old code predates them.                                   |
 | 10  | **Docs sync**                | suggestion | Behavior changes reflected in `README.md` / `.docs/` (especially the sample-input coverage list and troubleshooting).                                                              |
 

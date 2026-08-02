@@ -57,9 +57,8 @@ just run assessment3-employee-payroll
 
 Pass = `build-all` prints `57/57 PASS, 0 FAIL` and exits 0, and the run exits 0 with
 the closing summary block (`The total number of employee is ...`). If the branch
-changed a program that has a committed `sample-inputs\<name>.txt` (currently
-`assessment3-employee-payroll`, `movie-ticket`, `electric-bill`, `fibonacci-series`),
-run that one too. A hang means the cin read order and the sample-input file drifted
+changed a program that has a committed `sample-inputs\<name>.txt` (ten programs —
+`Get-ChildItem sample-inputs` lists them), run that one too. A hang means the cin read order and the sample-input file drifted
 apart (a failed `cin >>` leaves the stream in a fail state and any `Do you want to
 stop ?` loop never sees a `y`) — kill it with Ctrl+C and report FAIL.
 

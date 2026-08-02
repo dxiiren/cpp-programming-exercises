@@ -45,7 +45,6 @@ int main(){
 		if (numgrade[x]>highest)
 		    highest=numgrade[x];
 	}
-	cout<<"gdjgjgw"<<highest;
 	//display highest
 	cout<<"The most popular grade is :- \n";
 	for (int y=0 ; y<4 ; y++)

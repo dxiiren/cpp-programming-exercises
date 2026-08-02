@@ -1,0 +1,143 @@
+Parcel 1
+Please enter weight : N = North 
+S = South 
+E = East 
+W = West 
+Please enter delivery zone ( N/S/E/W) : The total charge is = RM 
+
+73.5Parcel 2
+Please enter weight : N = North 
+S = South 
+E = East 
+W = West 
+Please enter delivery zone ( N/S/E/W) : The total charge is = RM 
+
+78.75Parcel 3
+Please enter weight : N = North 
+S = South 
+E = East 
+W = West 
+Please enter delivery zone ( N/S/E/W) : The total charge is = RM 
+
+52.5Parcel 4
+Please enter weight : N = North 
+S = South 
+E = East 
+W = West 
+Please enter delivery zone ( N/S/E/W) : The total charge is = RM 
+
+57.75Parcel 5
+Please enter weight : N = North 
+S = South 
+E = East 
+W = West 
+Please enter delivery zone ( N/S/E/W) : The total charge is = RM 
+
+73.5Parcel 6
+Please enter weight : N = North 
+S = South 
+E = East 
+W = West 
+Please enter delivery zone ( N/S/E/W) : The total charge is = RM 
+
+78.75Parcel 7
+Please enter weight : N = North 
+S = South 
+E = East 
+W = West 
+Please enter delivery zone ( N/S/E/W) : The total charge is = RM 
+
+52.5Parcel 8
+Please enter weight : N = North 
+S = South 
+E = East 
+W = West 
+Please enter delivery zone ( N/S/E/W) : The total charge is = RM 
+
+57.75Parcel 9
+Please enter weight : N = North 
+S = South 
+E = East 
+W = West 
+Please enter delivery zone ( N/S/E/W) : The total charge is = RM 
+
+73.5Parcel 10
+Please enter weight : N = North 
+S = South 
+E = East 
+W = West 
+Please enter delivery zone ( N/S/E/W) : The total charge is = RM 
+
+78.75Parcel 11
+Please enter weight : N = North 
+S = South 
+E = East 
+W = West 
+Please enter delivery zone ( N/S/E/W) : The total charge is = RM 
+
+52.5Parcel 12
+Please enter weight : N = North 
+S = South 
+E = East 
+W = West 
+Please enter delivery zone ( N/S/E/W) : The total charge is = RM 
+
+57.75Parcel 13
+Please enter weight : N = North 
+S = South 
+E = East 
+W = West 
+Please enter delivery zone ( N/S/E/W) : The total charge is = RM 
+
+73.5Parcel 14
+Please enter weight : N = North 
+S = South 
+E = East 
+W = West 
+Please enter delivery zone ( N/S/E/W) : The total charge is = RM 
+
+78.75Parcel 15
+Please enter weight : N = North 
+S = South 
+E = East 
+W = West 
+Please enter delivery zone ( N/S/E/W) : The total charge is = RM 
+
+52.5Parcel 16
+Please enter weight : N = North 
+S = South 
+E = East 
+W = West 
+Please enter delivery zone ( N/S/E/W) : The total charge is = RM 
+
+57.75Parcel 17
+Please enter weight : N = North 
+S = South 
+E = East 
+W = West 
+Please enter delivery zone ( N/S/E/W) : The total charge is = RM 
+
+73.5Parcel 18
+Please enter weight : N = North 
+S = South 
+E = East 
+W = West 
+Please enter delivery zone ( N/S/E/W) : The total charge is = RM 
+
+78.75Parcel 19
+Please enter weight : N = North 
+S = South 
+E = East 
+W = West 
+Please enter delivery zone ( N/S/E/W) : The total charge is = RM 
+
+52.5Parcel 20
+Please enter weight : N = North 
+S = South 
+E = East 
+W = West 
+Please enter delivery zone ( N/S/E/W) : The total charge is = RM 
+
+57.75The total charge of all 20 packages is 1312.5
+The lowest cost is Rm52.5
+The highest cost is Rm78.75

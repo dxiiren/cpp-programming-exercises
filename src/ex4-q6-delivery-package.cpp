@@ -25,7 +25,7 @@ int zone ( char delivery ) {
 	else if(toupper(delivery)=='E')
 	     return 15;
 	     
-	else if(toupper(delivery)=='E')
+	else if(toupper(delivery)=='W')
 	    return 20;
 	else    
 	return 0;

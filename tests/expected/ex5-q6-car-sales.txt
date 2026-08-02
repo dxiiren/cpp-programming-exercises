@@ -1,0 +1,20 @@
+Enter number of cars sold for type 1 = 
+Enter number of cars sold for type 2 = 
+Enter number of cars sold for type 3 = 
+Enter number of cars sold for type 4 = 
+Enter number of cars sold for type 5 = 
+The total sales for each car is :- 
+Type A = RM270000
+Type B = RM237500
+Type C = RM120000
+Type D = RM292800
+Type E = RM51000
+
+The overall sell for all type of car is = RM971300
+
+The most popular car sold is type :- 
+
+Type 2
+
+
+

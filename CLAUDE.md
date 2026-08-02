@@ -22,7 +22,7 @@ code and no linking between files. Preserved coursework (2019-era), published 20
 | Language | C++ (g++ 16.1.0 via w64devkit) | 57 independent translation units, no build system, no dependencies |
 | Entry points | one `main()` per `src\*.cpp` | Most read stdin via `cin`/`getline`; 8 take no input (patterns/demos) |
 | Naming | kebab-case | free-standing drills `<topic>.cpp`; lab exercises `exN-qM-<topic>.cpp` |
-| Fixtures | `sample-inputs\<name>.txt` | 4 committed: assessment3-employee-payroll, movie-ticket, electric-bill, fibonacci-series |
+| Fixtures | `sample-inputs\<name>.txt` | 10 committed — the README Testing table lists them; each also has a golden in `tests\expected\` |
 | Task runner | `just` | parameterized recipes wrap the pinned-path `g++` (see `justfile`) |
 
 ### Project Structure
@@ -30,9 +30,9 @@ code and no linking between files. Preserved coursework (2019-era), published 20
 ```
 cpp-programming-exercises/
   src/                     # 57 standalone programs — one main() per .cpp
-  sample-inputs/           # canned stdin consumed by `just run <name>` (4 programs)
-  tests/                   # golden-output harness — run-tests.ps1 + expected/ (11 goldens);
-                           # `just test` must stay 11/11 PASS
+  sample-inputs/           # canned stdin consumed by `just run <name>` (10 programs)
+  tests/                   # golden-output harness — run-tests.ps1 + expected/ (17 goldens);
+                           # `just test` must stay 17/17 PASS
   out/                     # `just build`/`build-all` output — git-ignored
   .docs/                   # numbered documentation set
   .claude/                 # skills, hooks, settings
@@ -66,9 +66,13 @@ cpp-programming-exercises/
   `cin >>` fail-states the stream and any y/n stop loop **hangs forever** — no exception, no
   crash. Programs without a sample file run interactively under `just run`.
 - Preserve coursework quirks in untouched files: the 8 known `-Wall -Wextra` baseline
-  warnings, implicit-int `main()`, Malay comments, misleading names (`previous-day` prints
-  "next day"; `ex4-q10c-next-10-weeks` advances 4 weeks), and the swapped-argument bug in
-  `ex4-q9-bmi-reference.cpp`. Fix them only when a change is explicitly asked for.
+  warnings, implicit-int `main()`, Malay comments, and the remaining quirks in the
+  catalog's known-quirks table (e.g. `ex4-q10c-next-10-weeks` advances 4 weeks). The
+  documented logic bugs (swapped BMI arguments, uninitialized accumulators, duplicated
+  `'E'` zone test, "next day" label, `gdjgjgw` debug print) were **fixed** in a 2026
+  maintenance pass — see the fixed-bugs table in
+  `.docs/05-reference/program-catalog.md`. Fix further quirks only when a change is
+  explicitly asked for.
 
 ## Project Skills
 

@@ -10,10 +10,10 @@ cpp-programming-exercises/
     <topic>.cpp                 #   free-standing drills (movie-ticket.cpp, loan-application.cpp, ...)
     exN-qM-<topic>.cpp          #   lab exercises keeping their exercise/question number
     assessment3-employee-payroll.cpp   # graded assessment draft — canonical version (the standalone repo copy was retired)
-  sample-inputs/                # canned stdin for `just run <name>` — 4 files, named after their program
+  sample-inputs/                # canned stdin for `just run <name>` — 10 files, named after their program
   tests/                        # golden-output harness (`just test`)
     run-tests.ps1               #   builds + runs every program with a golden, diffs stdout
-    expected/                   #   11 committed goldens, named after their program
+    expected/                   #   17 committed goldens, named after their program
   out/                          # compiled <name>.exe files — git-ignored, `just clean` deletes
   .docs/                        # this documentation set (01-overview ... 07-faq + tldr)
   .claude/                      # Claude Code kit

@@ -63,7 +63,7 @@ int main(){
 	
 	//process
 	nextDay (day , month , year);
-	cout<<"\nThe next day is : "<<day<<" / "<<month<<" / "<<year;
+	cout<<"\nThe previous day is : "<<day<<" / "<<month<<" / "<<year;
 	
 	return 0;
 }

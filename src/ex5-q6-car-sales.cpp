@@ -5,7 +5,7 @@ using namespace std;
 int main(){
 	
 	const int size=5;
-	long total[size] , overall ;
+	long total[size] , overall=0 ;
 	double price[size]={90000,47500,60000,73200,51000} ;
 	int numcar[size] , highest;
 	

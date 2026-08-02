@@ -1,7 +1,8 @@
 # Program catalog
 
-> **TL;DR** The full inventory: every program, what it does, what it reads, and the known
-> coursework quirks preserved on purpose. Names are the `just run <name>` arguments.
+> **TL;DR** The full inventory: every program, what it does, what it reads, the coursework
+> bugs that have been fixed, and the remaining quirks preserved on purpose. Names are the
+> `just run <name>` arguments.
 
 Input column: **none** = prints and exits, no stdin · **stdin** = interactive prompts
 (run via `just run-interactive <name>` or type at `just run <name>`) · **sample** =
@@ -67,9 +68,9 @@ committed `sample-inputs\<name>.txt`, so `just run <name>` is unattended.
 | `ex3-q6c-pattern` | `*` growing triangle + solid block | none |
 | `ex3-q9-student-activity-points` | Per-student activity points; qualified (>100) count, highest, lowest | stdin |
 | `ex4-q4-even-odd-function` | Parity via a reference-parameter function | stdin |
-| `ex4-q6-delivery-package` | Delivery charge = mass rate + zone fee + 5% (two helper functions) | stdin |
-| `ex4-q7-total-delivery` | 20 parcels through the same charging; highest/lowest/total | stdin |
-| `ex4-q9-bmi-reference` | BMI via a reference out-parameter | stdin |
+| `ex4-q6-delivery-package` | Delivery charge = mass rate + zone fee + 5% (two helper functions) | sample |
+| `ex4-q7-total-delivery` | 20 parcels through the same charging; highest/lowest/total | sample |
+| `ex4-q9-bmi-reference` | BMI via a reference out-parameter | sample |
 | `ex4-q10-next-day` | Next calendar day with month-length/December handling | stdin |
 | `ex4-q10b-next-week` | Date one week ahead incl. leap-year February | stdin |
 | `ex4-q10c-next-10-weeks` | Next day, then 4 `nextWeek` hops | stdin |
@@ -78,10 +79,10 @@ committed `sample-inputs\<name>.txt`, so `just run <name>` is unattended.
 | `ex5-q4-array-merge-compare` | Two 5-element arrays: element sums (array c) and element-wise max (array d) | stdin |
 | `ex5-q5-grade-counter` | Grade tally (A/B/C/D bands) with y/n stop loop + most popular grade | stdin |
 | `ex5-q5-grade-counter-v2` | Grade tally for exactly 10 marks (for-loop variant) | stdin |
-| `ex5-q6-car-sales` | Units sold across 5 car types at fixed prices: per-type totals, overall, most popular | stdin |
+| `ex5-q6-car-sales` | Units sold across 5 car types at fixed prices: per-type totals, overall, most popular | sample |
 | `ex8-q4-date-formatter` | Numeric d/m/y to "1 January 2020"; loops until day/month 0 | stdin |
-| `previous-day` | Previous calendar day incl. leap-year February | stdin |
-| `untitled2-grade-counter` | Grade tally variant with a leftover debug print | stdin |
+| `previous-day` | Previous calendar day incl. leap-year February | sample |
+| `untitled2-grade-counter` | Grade tally variant with a y/n stop loop + most popular grade | sample |
 
 ## Assessments
 
@@ -94,18 +95,28 @@ as a standalone repo instead. That standalone copy was retired; this collection'
 `assessment3-employee-payroll.cpp` is the canonical version — the earlier draft (it
 compares `gross` rather than monthly salary for the highest/underpaid summary).
 
+## Fixed coursework bugs (2026 maintenance pass)
+
+Formerly "known quirks" — fixed on purpose; each fixed program now has a committed
+`sample-inputs\<name>.txt` and a golden in `tests\expected\` pinning the corrected
+behavior.
+
+| Program | Bug (now fixed) |
+| --- | --- |
+| `ex4-q9-bmi-reference` | Called `BMI(height, weight, bmi)` against parameters declared `(weight, height, ...)` — arguments swapped, so the BMI was inverted. The call now passes `(weight, height, bmi)` |
+| `previous-day` | Computed the previous day but printed "The next day is" — label now says "The previous day is" |
+| `ex5-q6-car-sales` | `overall` accumulator never initialized — could print garbage; now `overall=0` |
+| `ex4-q7-total-delivery` | `sumall` accumulator never initialized — same risk; now `sumall=0` |
+| `ex4-q6-delivery-package` / `ex4-q7-total-delivery` | Zone `'E'` tested twice, making `'W'` unreachable (fell through to 0); the second test is now `'W'` (returns 20) |
+| `untitled2-grade-counter` | `cout<<"gdjgjgw"` debug leftover before the popular-grade block — removed |
+
 ## Known coursework quirks (preserved, do not "fix" casually)
 
 | Program | Quirk |
 | --- | --- |
-| `ex4-q9-bmi-reference` | Calls `BMI(height, weight, bmi)` but the parameters are declared `(weight, height, ...)` — arguments swapped, so the BMI is inverted; also labels low BMI "unhealthy" and high BMI "underweight" |
+| `ex4-q9-bmi-reference` | Status labels are odd: BMI below 20 prints "unhealthy" and BMI 25+ prints "underweight" (only the swapped-argument bug was fixed) |
 | `ex4-q10c-next-10-weeks` | Name says 10 weeks; the loop advances 4 |
-| `previous-day` | Computes the previous day but prints "The next day is" |
 | `sum-of-odd-numbers` | Adds `n` after incrementing, so the printed list and the sum are off by one step |
-| `ex5-q6-car-sales` | `overall` accumulator never initialized — the overall total can print garbage |
-| `ex4-q7-total-delivery` | `sumall` accumulator never initialized — same risk |
-| `ex4-q6-delivery-package` / `ex4-q7-total-delivery` | Zone `'E'` tested twice; `'W'` unreachable (falls to 0) |
-| `untitled2-grade-counter` | `cout<<"gdjgjgw"` debug leftover before the popular-grade block |
 | 8 files | One `-Wall -Wextra` warning each — the accepted baseline, see [`../06-troubleshooting/common-issues.md`](../06-troubleshooting/common-issues.md) |
 
 ## Related docs

@@ -25,9 +25,11 @@ reason to use the recipes.
 
 ## `just run <name>` shows nothing and appears stuck
 
-The program is reading stdin interactively. Only four programs have committed sample
-inputs (`assessment3-employee-payroll`, `movie-ticket`, `electric-bill`,
-`fibonacci-series`); for the rest, `just run` prints an `[INFO] ... running interactively`
+The program is reading stdin interactively. Only ten programs have committed sample
+inputs (`assessment3-employee-payroll`, `electric-bill`, `ex4-q6-delivery-package`,
+`ex4-q7-total-delivery`, `ex4-q9-bmi-reference`, `ex5-q6-car-sales`, `fibonacci-series`,
+`movie-ticket`, `previous-day`, `untitled2-grade-counter`); for the rest, `just run`
+prints an `[INFO] ... running interactively`
 note and waits for you to type. That's expected — answer the prompts, or create a
 `sample-inputs\<name>.txt` matching the program's exact read order.
 
@@ -62,10 +64,12 @@ NEW warning in a file you touched is a regression.
 
 ## A program prints a wrong-looking result but exits fine
 
-Check the [known-quirks table](../05-reference/program-catalog.md#known-coursework-quirks-preserved-do-not-fix-casually)
-first — several logic bugs (swapped BMI arguments, uninitialized accumulators, the
-"next day" label on `previous-day`) are original coursework behavior, preserved on
-purpose.
+Check the [program catalog](../05-reference/program-catalog.md) first. The documented
+logic bugs (swapped BMI arguments, uninitialized accumulators, the duplicated `'E'`
+zone test, the "next day" label on `previous-day`, the `gdjgjgw` debug print) were
+**fixed** in the 2026 maintenance pass — see its fixed-bugs table. The remaining rows in
+the known-quirks table (odd BMI status labels, the 4-week "10 weeks" loop, the
+off-by-one odd-number series) are original coursework behavior, preserved on purpose.
 
 ## Related docs
 
