@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-int typeofnumber (int & num )
+void typeofnumber (int & num )
 {
 	if (num%2 !=0)
 	    num = 1;

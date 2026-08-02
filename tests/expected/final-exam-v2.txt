@@ -1,0 +1,10 @@
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Calculate The Final Total Score of A Student
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+------>Press Enter to continue<------
+Enter mark of Final Exam , Project , Test ;
+
+Final Exam (a/100) = Project (b/80) = Test (c/60) = 
+Total mark is :38%
+STUDENT FAIL

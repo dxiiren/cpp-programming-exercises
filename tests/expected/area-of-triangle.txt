@@ -1,0 +1,8 @@
+~ Calculate the area of Triangle ~ 
+____________________________________
+
+Enter base = Enter height = 
+The area of triangle is = 30
+
+
+

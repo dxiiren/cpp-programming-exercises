@@ -1,0 +1,12 @@
+~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_
+Total Price After Discount
+~_~_~_~_~_~_~_~_~_~_~_~_~_~_~_
+
+Enter The Price of an item & discount
+
+Price of an item = Discount rates % :  
+---------------
+The Result :
+---------------
+Price before disount = RM 250
+Price after discount : RM 212.5

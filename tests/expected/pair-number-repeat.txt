@@ -1,0 +1,7 @@
+Type 2 number : Sum of pair 1 is= 550
+
+Type 2 number : Sum of pair 2 is= 250
+
+Type 2 number : 
+The number of pair that larger than 500 is 1
+The largest sum is = 550 300 , 250

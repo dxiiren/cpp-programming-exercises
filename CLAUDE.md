@@ -22,7 +22,7 @@ code and no linking between files. Preserved coursework (2019-era), published 20
 | Language | C++ (g++ 16.1.0 via w64devkit) | 57 independent translation units, no build system, no dependencies |
 | Entry points | one `main()` per `src\*.cpp` | Most read stdin via `cin`/`getline`; 8 take no input (patterns/demos) |
 | Naming | kebab-case | free-standing drills `<topic>.cpp`; lab exercises `exN-qM-<topic>.cpp` |
-| Fixtures | `sample-inputs\<name>.txt` | 10 committed — the README Testing table lists them; each also has a golden in `tests\expected\` |
+| Fixtures | `sample-inputs\<name>.txt` | 50 committed (one per stdin program); the other 7 programs read no stdin and are fed `< NUL`. Every program has a golden in `tests\expected\` |
 | Task runner | `just` | parameterized recipes wrap the pinned-path `g++` (see `justfile`) |
 
 ### Project Structure
@@ -31,8 +31,9 @@ code and no linking between files. Preserved coursework (2019-era), published 20
 cpp-programming-exercises/
   src/                     # 57 standalone programs — one main() per .cpp
   sample-inputs/           # canned stdin consumed by `just run <name>` (10 programs)
-  tests/                   # golden-output harness — run-tests.ps1 + expected/ (17 goldens);
-                           # `just test` must stay 17/17 PASS
+  tests/                   # golden-output harness — run-tests.ps1 + expected/ (57 goldens);
+                           # `just test` must stay 57/57 PASS. The harness also fails a
+                           # program on a NON-ZERO EXIT CODE even when stdout matches.
   out/                     # `just build`/`build-all` output — git-ignored
   .docs/                   # numbered documentation set
   .claude/                 # skills, hooks, settings

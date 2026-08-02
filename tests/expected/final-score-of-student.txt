@@ -1,0 +1,9 @@
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Calculate The Final Total Score of A Student
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+------>Press Enter to continue<------
+Enter mark of Final Exam , Project , Test ;
+
+Final Exam (a/100) = Project (b/50) = Test (c/60) = 
+Final score is = 80.3333%

@@ -1,0 +1,3 @@
+Enter a number : 
+
+8 is new number

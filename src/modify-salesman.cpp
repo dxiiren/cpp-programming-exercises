@@ -21,6 +21,7 @@ int main(){
 	 while((toupper(answer2)!='N'))
 	 
 	    { cout<<"\n"<<"Salesman"<<i+1;
+	       total=0;
 	
 	       {for (n=0 ; n>=0 ;)
 		 

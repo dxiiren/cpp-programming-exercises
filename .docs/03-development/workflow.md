@@ -15,7 +15,7 @@
    just build <name>       # compile just your program
    just run <name>         # run it (sample input or interactive)
    just build-all          # the collection gate: 57/57 PASS expected
-   just test               # the output gate: 17/17 PASS expected (golden diffs)
+   just test               # the output gate: 57/57 PASS expected (golden diffs + exit codes)
    ```
 4. **Input contract** — if you add/reorder a `cin >>`/`getline`, mirror it in that
    program's `sample-inputs\<name>.txt` (exact read order; a y/n loop needs its final

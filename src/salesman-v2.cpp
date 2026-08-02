@@ -6,8 +6,8 @@ using namespace std;
 int main(){
 	
 	//declare variable
-	int n=0 , max=0 , min=999999 ;
-	double salary , comission , loan , totalincome=0 , avgincome ;
+	int n=0 ;
+	double salary , comission , loan , totalincome=0 , avgincome , max=0 , min=999999 ;
 	char answer='N';
 	string name , maxName , minName;
 	cout<<"Press enter to start"<<endl;

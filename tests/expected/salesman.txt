@@ -1,0 +1,21 @@
+Chendering Luxury Cars Sdn Bhd
+Press enter to start
+
+Salesman 1
+Please enter name : Please enter monthly salary: Please enter total price of car that had been sold: The total income is rm = 4500
+
+Salesman 2
+Please enter name : Please enter monthly salary: Please enter total price of car that had been sold: The total income is rm = 3100
+
+Salesman 3
+Please enter name : Please enter monthly salary: Please enter total price of car that had been sold: The total income is rm = 6400
+
+Salesman 4
+Please enter name : Please enter monthly salary: Please enter total price of car that had been sold: The total income is rm = 2100
+
+Salesman 5
+Please enter name : Please enter monthly salary: Please enter total price of car that had been sold: The total income is rm = 4100
+
+The highest salary is Chan = RM6400
+The lowest salary is Devi = RM2100
+The total salary of all salesman is RM :20200

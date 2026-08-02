@@ -1,0 +1,7 @@
+Program to count next day dd//mm/yy 
+
+Enter day (number) = Enter month (number) = Enter year (number) = The date given is : 22 / 2 / 2024
+The next week is : 29 / 2 / 2024
+
+Do you want to stop ? (Y/N) = 
+

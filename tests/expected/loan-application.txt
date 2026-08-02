@@ -1,0 +1,8 @@
+Programs to determine loan applicaton
+_____________________________________
+Enter amount of loan to be apply :RMEnter total income for a year = RMEnter total year of taking a loan (years):--------------------------------------
+
+
+Congratulation you are applicable to apply a loan
+Your total payment of 50000 MYR loan  is = RM 2416.67 per month
+Thank you

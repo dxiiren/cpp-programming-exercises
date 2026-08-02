@@ -20,7 +20,7 @@ int main ()
     cout<<"Please enter your weight (kg) :";
     cin>>weight;
     
-    bmi=BMI(height,weight);
+    bmi=BMI(weight,height);
     
     if (bmi<20)
          person="unhealthy";

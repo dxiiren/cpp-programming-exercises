@@ -1,0 +1,14 @@
+Enter number of students = 
+Student1
+Enter your name : Enter number of activity : Enter point for activity 1 = Enter point for activity 2 = Enter point for activity 3 = 
+Your total point is = 105
+
+Student2
+Enter your name : Enter number of activity : Enter point for activity 1 = Enter point for activity 2 = 
+Your total point is = 35
+
+
+
+The number of student who qualify for the college is : 1
+The highest point recorded is = Ahmad , 105
+The lowest point recorded is = Aina , 35

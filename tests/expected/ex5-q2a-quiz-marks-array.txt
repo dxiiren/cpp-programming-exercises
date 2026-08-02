@@ -1,0 +1,7 @@
+Enter marks for the quiz = Enter marks for the quiz = Enter marks for the quiz = Enter marks for the quiz = The total is 260
+The average is 65
+
+
+The mark that higher than average is :- 
+90
+70

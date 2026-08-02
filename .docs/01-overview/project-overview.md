@@ -10,15 +10,16 @@
 The C++ half of the developer's CSC126 coursework: practice drills and graded exercises
 covering the course's four pillars — sequential I/O, selection (`if`/`else`), repetition
 (`for`/`while`/sentinel loops), functions (value/reference parameters), and 1-D arrays.
-Every program is a small run-to-completion CLI that reads from `cin` (49 of 57) or just
-prints (8 of 57). The full program-by-program catalog lives in
+Every program is a small run-to-completion CLI that reads from `cin` (50 of 57) or just
+prints (7 of 57). All 57 have a committed golden. The full program-by-program catalog lives in
 [`../05-reference/program-catalog.md`](../05-reference/program-catalog.md) and the README.
 
 The code is **preserved coursework**: implicit-int `main()`, Malay comments, and the
 remaining catalog quirks are kept as historical record. (The documented logic bugs —
-uninitialized accumulators, a swapped-argument BMI call, a duplicated zone test, a
-mislabeled output, a leftover debug print — were fixed in a 2026 maintenance pass; see
-the catalog's fixed-bugs table.) All
+uninitialized accumulators, swapped-argument BMI calls, a duplicated zone test, a
+mislabeled output, a leftover debug print, an un-reset commission accumulator, an
+int-truncated income summary, and a missing `return` that trapped at runtime — were fixed
+in the 2026 maintenance and golden-coverage passes; see the catalog's fixed-bugs table.) All
 57 files compile cleanly with g++ 16.1.0 (8 files carry one `-Wall -Wextra` warning each —
 see [`../06-troubleshooting/common-issues.md`](../06-troubleshooting/common-issues.md)).
 

@@ -1,0 +1,21 @@
+Type of items ;
+(A) = Microwave oven 
+(B) = TV 
+(C) = Stereo 
+(D) = Refrigerator 
+
+Salesman1
+Enter type of item =Enter the price =Enter quantity of item =Do you want to stop (Enter any positive number to continue or Enter any negative number to stop) ? :
+Enter type of item =Enter the price =Enter quantity of item =Do you want to stop (Enter any positive number to continue or Enter any negative number to stop) ? :
+~>TOTAL COMISSION TO BE PAID FOR SALESMAN 1 IS RM 800
+Next Salesman (y/n) ? :
+Salesman2
+Enter type of item =Enter the price =Enter quantity of item =Do you want to stop (Enter any positive number to continue or Enter any negative number to stop) ? :
+Enter type of item =Enter the price =Enter quantity of item =Do you want to stop (Enter any positive number to continue or Enter any negative number to stop) ? :
+~>TOTAL COMISSION TO BE PAID FOR SALESMAN 2 IS RM 1440
+Next Salesman (y/n) ? :
+The most item that have been sold is type D = 10 item
+
+
+~~ TOTAL COMISSION OF ALL SALESMAN IS = RM2240 ~~
+~~ AVERAGE TOTAL COMISSION OF ALL SALESMAN = RM1120 ~~

@@ -1,0 +1,10 @@
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Calculate the average of 3 people
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Enter The Age for 3 People (A , B , C);
+
+------>Press Enter to continue<------
+
+A = B = C = 
+The average of 3 people is = 35

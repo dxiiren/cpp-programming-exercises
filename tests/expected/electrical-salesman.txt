@@ -1,0 +1,14 @@
+Type of items ;
+(A) = Microwave oven 
+(B) = TV 
+(C) = Stereo 
+(D) = Refrigerator 
+
+Enter type of item =Enter the price =Enter quantity of item =
+Do you want to stop (y/n) ? :
+Enter type of item =Enter the price =Enter quantity of item =
+Do you want to stop (y/n) ? :
+Enter type of item =Enter the price =Enter quantity of item =
+Do you want to stop (y/n) ? :
+Total Comission to be paid is RM 2800
+The most item that have been sold is type C = 10 item

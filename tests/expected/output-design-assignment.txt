@@ -1,0 +1,10 @@
+~ Student Information ~ 
+
+
+
+ Enter the students name :  Enter the student's ID  number :  Enter the student's age : 
+
+
+ Name = Ahmad Zulkifli
+ ID number = 12345678
+ Age = 21

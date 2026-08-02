@@ -1,0 +1,8 @@
+Adding two numbers 
+.............................
+
+
+ Enter first number .  Enter second number . 
+
+
+The answer is = 42

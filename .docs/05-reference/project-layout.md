@@ -13,7 +13,7 @@ cpp-programming-exercises/
   sample-inputs/                # canned stdin for `just run <name>` — 10 files, named after their program
   tests/                        # golden-output harness (`just test`)
     run-tests.ps1               #   builds + runs every program with a golden, diffs stdout
-    expected/                   #   17 committed goldens, named after their program
+    expected/                   #   57 committed goldens, named after their program
   out/                          # compiled <name>.exe files — git-ignored, `just clean` deletes
   .docs/                        # this documentation set (01-overview ... 07-faq + tldr)
   .claude/                      # Claude Code kit

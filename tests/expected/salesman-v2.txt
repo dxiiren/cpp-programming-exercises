@@ -1,0 +1,17 @@
+Press enter to start
+
+Salesman1
+Enter name: Enter monthly salary: Enter total price of car had been sold: Enter payment value of loan: The total salary is =Rm3501.5
+Do you want to stop (y/n) ? 
+Salesman2
+Enter name: Enter monthly salary: Enter total price of car had been sold: Enter payment value of loan: The total salary is =Rm2150.02
+Do you want to stop (y/n) ? 
+Salesman3
+Enter name: Enter monthly salary: Enter total price of car had been sold: Enter payment value of loan: The total salary is =Rm6300.01
+Do you want to stop (y/n) ? 
+Salesman4
+Enter name: Enter monthly salary: Enter total price of car had been sold: Enter payment value of loan: The total salary is =Rm850.007
+Do you want to stop (y/n) ? The highest net income is Hafiz :RM6300.01
+The lowest net income is Iris :RM850.007
+
+The average net income of salesman is RM3200.39

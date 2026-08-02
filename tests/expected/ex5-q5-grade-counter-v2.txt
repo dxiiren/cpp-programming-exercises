@@ -1,0 +1,17 @@
+Enter your mark = 
+Enter your mark = 
+Enter your mark = 
+Enter your mark = 
+Enter your mark = 
+Enter your mark = 
+Enter your mark = 
+Enter your mark = 
+Enter your mark = 
+Enter your mark = 
+The number of students who's get grade 'A' is = 2
+The number of students who's get grade 'B' is = 4
+The number of students who's get grade 'C' is = 2
+The number of students who's get grade 'D' is = 2
+
+The most popular grade is :- 
+Grade B , 

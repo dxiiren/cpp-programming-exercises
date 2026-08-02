@@ -1,0 +1,2 @@
+Please enter your height (m) :Please enter your weight (kg) :
+Your status is = healthy

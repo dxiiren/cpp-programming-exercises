@@ -4,59 +4,61 @@
 > bugs that have been fixed, and the remaining quirks preserved on purpose. Names are the
 > `just run <name>` arguments.
 
-Input column: **none** = prints and exits, no stdin · **stdin** = interactive prompts
-(run via `just run-interactive <name>` or type at `just run <name>`) · **sample** =
-committed `sample-inputs\<name>.txt`, so `just run <name>` is unattended.
+Input column: **none** = prints and exits, no stdin (7 programs) · **sample** = committed
+`sample-inputs\<name>.txt` matching the program's exact `cin` read order, so
+`just run <name>` is unattended and the program has a golden (50 programs). Every program
+in the collection is one or the other — coverage is 57/57. Type your own values instead
+with `just run-interactive <name>`.
 
 ## Basics — I/O, arithmetic, operators
 
 | Program | What it does | Input |
 | --- | --- | --- |
-| `add-2-numbers` | Read two integers and print their sum | stdin |
-| `area-of-triangle` | Base and height to triangle area (`0.5*b*h`) | stdin |
-| `average-of-3-people` | Average the ages of three people | stdin |
+| `add-2-numbers` | Read two integers and print their sum | sample |
+| `area-of-triangle` | Base and height to triangle area (`0.5*b*h`) | sample |
+| `average-of-3-people` | Average the ages of three people | sample |
 | `boolean` | Bool expression on hardcoded marks; prints the 0/1 result | none |
-| `divide-2-numbers` | Division with a divide-by-zero guard | stdin |
+| `divide-2-numbers` | Division with a divide-by-zero guard | sample |
 | `increment-operators` | `++`/`--`/`+=`/`sqrt` walkthrough on one variable | none |
-| `larger-number` | Print the larger of two numbers | stdin |
-| `output-design-assignment` | Read and echo a student's name, ID, and age | stdin |
+| `larger-number` | Print the larger of two numbers | sample |
+| `output-design-assignment` | Read and echo a student's name, ID, and age | sample |
 | `test` | Array rewrite: odd values become 99, odd indexes +8; prints the result row | none |
 
 ## Selection — if/else chains
 
 | Program | What it does | Input |
 | --- | --- | --- |
-| `bmi-function` | BMI via a value-returning function, then a health status | stdin |
-| `comma-draft` | Insert a thousands comma into a number over 1000 (draft attempt) | stdin |
-| `comma-percent` | Thousands-comma formatting via `%`; validates 1000–50000 | stdin |
-| `discount-price` | Price + discount rate to price after discount | stdin |
+| `bmi-function` | BMI via a value-returning function, then a health status | sample |
+| `comma-draft` | Insert a thousands comma into a number over 1000 (draft attempt) | sample |
+| `comma-percent` | Thousands-comma formatting via `%`; validates 1000–50000 | sample |
+| `discount-price` | Price + discount rate to price after discount | sample |
 | `electric-bill` | Tiered bill: 0.10/unit ≤100, 0.30 ≤600, 0.50 ≤1100, 0.70 above | sample |
-| `even-and-odd-number` | Parity check; an odd number gets incremented into a "new number" | stdin |
-| `even-and-odd-v2` | Clean odd/even verdict for one integer | stdin |
-| `final-exam-v2` | Weighted score (exam 70% of /100, project 20% of /80, test 10% of /60) + PASS/FAIL at 50 | stdin |
-| `final-score-of-student` | Same weighting idea (project /50), no verdict | stdin |
-| `format-time` | 24-hour `HHMM` integer to 12-hour am/pm display | stdin |
-| `high-tech-company` | Capital + IT-headcount rules decide "high-tech company" | stdin |
-| `land-area-tax` | Tiered land tax by acreage (10/20/35/50 per acre) | stdin |
-| `loan-application` | Eligibility (loan vs yearly income and tenure) + monthly payment | stdin |
+| `even-and-odd-number` | Parity check; an odd number gets incremented into a "new number" | sample |
+| `even-and-odd-v2` | Clean odd/even verdict for one integer | sample |
+| `final-exam-v2` | Weighted score (exam 70% of /100, project 20% of /80, test 10% of /60) + PASS/FAIL at 50 | sample |
+| `final-score-of-student` | Same weighting idea (project /50), no verdict | sample |
+| `format-time` | 24-hour `HHMM` integer to 12-hour am/pm display | sample |
+| `high-tech-company` | Capital + IT-headcount rules decide "high-tech company" | sample |
+| `land-area-tax` | Tiered land tax by acreage (10/20/35/50 per acre) | sample |
+| `loan-application` | Eligibility (loan vs yearly income and tenure) + monthly payment | sample |
 | `movie-ticket` | Ticket total: seniors -40%, children -50%, kids free | sample |
-| `shoe-discount` | Shoe type A/B/C discount pricing, quantity-dependent for B/C | stdin |
+| `shoe-discount` | Shoe type A/B/C discount pricing, quantity-dependent for B/C | sample |
 
 ## Loops — for/while/sentinel
 
 | Program | What it does | Input |
 | --- | --- | --- |
-| `avg-mark-student-and-class` | Per-student test average + 40/60-weighted score, then the class average | stdin |
-| `blood-pressure-and-sugar` | 5 patients' BP/sugar to hypertension, diabetes, and combined counts | stdin |
-| `count-even-and-odd-data` | Read 10 numbers; count evens and odds | stdin |
-| `electrical-salesman` | Item-sales loop (A–D, tiered commission %) to total commission + best seller | stdin |
+| `avg-mark-student-and-class` | Per-student test average + 40/60-weighted score, then the class average | sample |
+| `blood-pressure-and-sugar` | 5 patients' BP/sugar to hypertension, diabetes, and combined counts | sample |
+| `count-even-and-odd-data` | Read 10 numbers; count evens and odds | sample |
+| `electrical-salesman` | Item-sales loop (A–D, tiered commission %) to total commission + best seller | sample |
 | `fibonacci-series` | First n Fibonacci terms | sample |
-| `following-series` | Prints 2i/3i fractions for n terms plus their sum | stdin |
-| `modify-salesman` | Nested loops: per-salesman commissions, grand total, average | stdin |
-| `pair-number-repeat` | Sum pairs until both numbers match; largest sum + count over 500 | stdin |
-| `salesman` | 5 salesmen: salary + 3% of sales; highest/lowest/total | stdin |
-| `salesman-v2` | y/n-looped salesman income with loan deduction + average | stdin |
-| `sentinel-even-odd` | Sentinel-0 loop counting evens/odds plus min and max | stdin |
+| `following-series` | Prints 2i/3i fractions for n terms plus their sum | sample |
+| `modify-salesman` | Nested loops: per-salesman commissions, grand total, average | sample |
+| `pair-number-repeat` | Sum pairs until both numbers match; largest sum + count over 500 | sample |
+| `salesman` | 5 salesmen: salary + 3% of sales; highest/lowest/total | sample |
+| `salesman-v2` | y/n-looped salesman income with loan deduction + average | sample |
+| `sentinel-even-odd` | Sentinel-0 loop counting evens/odds plus min and max | sample |
 | `sum-of-odd-numbers` | Lists odd numbers 101–199 and sums the series | none |
 
 ## Exercise sets (Ex3–Ex8) — patterns, functions, arrays
@@ -66,21 +68,21 @@ committed `sample-inputs\<name>.txt`, so `just run <name>` is unattended.
 | `ex3-q6a-pattern` | `?` hourglass from nested count-down/count-up loops | none |
 | `ex3-q6b-pattern` | `=` rails around `+ +` rows | none |
 | `ex3-q6c-pattern` | `*` growing triangle + solid block | none |
-| `ex3-q9-student-activity-points` | Per-student activity points; qualified (>100) count, highest, lowest | stdin |
-| `ex4-q4-even-odd-function` | Parity via a reference-parameter function | stdin |
+| `ex3-q9-student-activity-points` | Per-student activity points; qualified (>100) count, highest, lowest | sample |
+| `ex4-q4-even-odd-function` | Parity via a reference-parameter function | sample |
 | `ex4-q6-delivery-package` | Delivery charge = mass rate + zone fee + 5% (two helper functions) | sample |
 | `ex4-q7-total-delivery` | 20 parcels through the same charging; highest/lowest/total | sample |
 | `ex4-q9-bmi-reference` | BMI via a reference out-parameter | sample |
-| `ex4-q10-next-day` | Next calendar day with month-length/December handling | stdin |
-| `ex4-q10b-next-week` | Date one week ahead incl. leap-year February | stdin |
-| `ex4-q10c-next-10-weeks` | Next day, then 4 `nextWeek` hops | stdin |
-| `ex5-q2a-quiz-marks-array` | 4 quiz marks in an array: total, average, above-average marks | stdin |
-| `ex5-q3-rainfall` | 12 months of rainfall: total, wettest/driest month, above-average months | stdin |
-| `ex5-q4-array-merge-compare` | Two 5-element arrays: element sums (array c) and element-wise max (array d) | stdin |
-| `ex5-q5-grade-counter` | Grade tally (A/B/C/D bands) with y/n stop loop + most popular grade | stdin |
-| `ex5-q5-grade-counter-v2` | Grade tally for exactly 10 marks (for-loop variant) | stdin |
+| `ex4-q10-next-day` | Next calendar day with month-length/December handling | sample |
+| `ex4-q10b-next-week` | Date one week ahead incl. leap-year February | sample |
+| `ex4-q10c-next-10-weeks` | Next day, then 4 `nextWeek` hops | sample |
+| `ex5-q2a-quiz-marks-array` | 4 quiz marks in an array: total, average, above-average marks | sample |
+| `ex5-q3-rainfall` | 12 months of rainfall: total, wettest/driest month, above-average months | sample |
+| `ex5-q4-array-merge-compare` | Two 5-element arrays: element sums (array c) and element-wise max (array d) | sample |
+| `ex5-q5-grade-counter` | Grade tally (A/B/C/D bands) with y/n stop loop + most popular grade | sample |
+| `ex5-q5-grade-counter-v2` | Grade tally for exactly 10 marks (for-loop variant) | sample |
 | `ex5-q6-car-sales` | Units sold across 5 car types at fixed prices: per-type totals, overall, most popular | sample |
-| `ex8-q4-date-formatter` | Numeric d/m/y to "1 January 2020"; loops until day/month 0 | stdin |
+| `ex8-q4-date-formatter` | Numeric d/m/y to "1 January 2020"; loops until day/month 0 | sample |
 | `previous-day` | Previous calendar day incl. leap-year February | sample |
 | `untitled2-grade-counter` | Grade tally variant with a y/n stop loop + most popular grade | sample |
 
@@ -99,7 +101,8 @@ compares `gross` rather than monthly salary for the highest/underpaid summary).
 
 Formerly "known quirks" — fixed on purpose; each fixed program now has a committed
 `sample-inputs\<name>.txt` and a golden in `tests\expected\` pinning the corrected
-behavior.
+behavior. The 2026 golden-coverage pass (57/57) surfaced four more while authoring input
+fixtures; they are the last four rows.
 
 | Program | Bug (now fixed) |
 | --- | --- |
@@ -109,13 +112,17 @@ behavior.
 | `ex4-q7-total-delivery` | `sumall` accumulator never initialized — same risk; now `sumall=0` |
 | `ex4-q6-delivery-package` / `ex4-q7-total-delivery` | Zone `'E'` tested twice, making `'W'` unreachable (fell through to 0); the second test is now `'W'` (returns 20) |
 | `untitled2-grade-counter` | `cout<<"gdjgjgw"` debug leftover before the popular-grade block — removed |
+| `ex4-q4-even-odd-function` | `int typeofnumber(int&)` had no `return` on any path (it only assigns through the reference). Undefined behavior — g++ compiles the fall-through to a `ud2` trap, so the program **crashed on every run** (exit `0xC000001D`) after printing correct output. Declared `void`, matching every other reference-mutator in the collection. This is exactly the class of failure the harness's exit-code check catches |
+| `bmi-function` | Called `BMI(height, weight)` against parameters declared `(weight, height)` — the same swapped-argument bug already fixed in `ex4-q9-bmi-reference`. The call now passes `(weight, height)` |
+| `modify-salesman` | The per-salesman `total` commission accumulator was never reset between salesmen, so "TOTAL COMISSION TO BE PAID FOR SALESMAN 2" silently included salesman 1's commission (and `sumofcomission` compounded it). `total=0` now resets at the top of each salesman iteration |
+| `salesman-v2` | `max`/`min` were declared `int` while `salary` is `double`, truncating decimals — the "highest/lowest net income" summary disagreed with the per-salesman line printed just above it. Both are now `double` |
 
 ## Known coursework quirks (preserved, do not "fix" casually)
 
 | Program | Quirk |
 | --- | --- |
 | `ex4-q9-bmi-reference` | Status labels are odd: BMI below 20 prints "unhealthy" and BMI 25+ prints "underweight" (only the swapped-argument bug was fixed) |
-| `ex4-q10c-next-10-weeks` | Name says 10 weeks; the loop advances 4 |
+| `ex4-q10c-next-10-weeks` | Name says 10 weeks; the loop advances 4 — and the output mislabels it too ("The next 4 week is"). Pinned as-is by `tests\expected\ex4-q10c-next-10-weeks.txt`; do not "fix" it |
 | `sum-of-odd-numbers` | Adds `n` after incrementing, so the printed list and the sum are off by one step |
 | 8 files | One `-Wall -Wextra` warning each — the accepted baseline, see [`../06-troubleshooting/common-issues.md`](../06-troubleshooting/common-issues.md) |
 

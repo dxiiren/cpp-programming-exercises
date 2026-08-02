@@ -1,0 +1,2 @@
+Enter the current time ( Exm: 0934 / 1425 ) 
+Time = The time now is 12:05 pm.

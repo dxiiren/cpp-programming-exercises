@@ -18,7 +18,7 @@ gh — idempotent), reopen PowerShell, then `just list`, `just build-all` (expec
 
 Branch, edit one standalone program, `just build <name>` + `just run <name>`, keep
 `sample-inputs\<name>.txt` in sync with any cin change, `just build-all` + `just test`
-(17/17 golden diffs) as the gates, then `/pre-pr-review`, `/commit`, `/create-pr`. House
+(57/57 golden diffs + exit-code checks) as the gates, then `/pre-pr-review`, `/commit`, `/create-pr`. House
 rules: preserve coursework quirks, no build-system creep, never commit `out\`.
 
 ## [04-deployment/deployment.md](04-deployment/deployment.md)
@@ -31,7 +31,7 @@ you ever must hand one over.
 
 The just recipes: `list`, `build <name>`, `build-all` (stops at first error, prints
 PASS/FAIL summary), `run <name>` (canned stdin when a sample exists, else interactive),
-`run-interactive <name>`, `test` (golden-output suite over 17 covered programs), `clean`,
+`run-interactive <name>`, `test` (golden-output suite over all 57 programs), `clean`,
 plus the claude launchers. Explains the pinned g++ path, the PATH-prepend for `as`, and
 the BOM-avoiding cmd redirect.
 

@@ -10,7 +10,9 @@
 Because they're the historical record of a first-year programming course. The documented
 logic bugs (swapped BMI arguments, uninitialized accumulators, the duplicated `'E'` zone
 test, the "next day" label, a debug print) were fixed in a deliberate 2026 maintenance
-pass — the catalog's fixed-bugs table in
+pass, and four more surfaced during the golden-coverage pass that took the suite to 57/57
+— including `ex4-q4-even-odd-function`, whose missing `return` made it crash on every run
+while still printing the right text. The catalog's fixed-bugs table in
 [`../05-reference/program-catalog.md`](../05-reference/program-catalog.md) records each
 one, and goldens pin the corrected behavior. The remaining quirks in its known-quirks
 table stay; fixing one is fine as a deliberate change with its own branch/PR — never as

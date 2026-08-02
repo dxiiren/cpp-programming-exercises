@@ -1,0 +1,17 @@
+System to count average mark 
+
+Enter number of students : 
+Student1
+Enter mark for test 1 : Enter mark for test 2 : Average mark of a student is = 85
+Final score for student is : 86
+
+Student2
+Enter mark for test 1 : Enter mark for test 2 : Average mark of a student is = 65
+Final score for student is : 66
+
+Student3
+Enter mark for test 1 : Enter mark for test 2 : Average mark of a student is = 45
+Final score for student is : 44
+
+
+The average mark for final score of the class is = 65.3333

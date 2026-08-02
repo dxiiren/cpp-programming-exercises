@@ -1,0 +1,5 @@
+This program determines whether a number is odd or even
+
+Please enter an integer number: 
+
+It is an even number .

@@ -1,0 +1,12 @@
+Enter total rain in Kuala Terengganu for month1 = Enter total rain in Kuala Terengganu for month2 = Enter total rain in Kuala Terengganu for month3 = Enter total rain in Kuala Terengganu for month4 = Enter total rain in Kuala Terengganu for month5 = Enter total rain in Kuala Terengganu for month6 = Enter total rain in Kuala Terengganu for month7 = Enter total rain in Kuala Terengganu for month8 = Enter total rain in Kuala Terengganu for month9 = Enter total rain in Kuala Terengganu for month10 = Enter total rain in Kuala Terengganu for month11 = Enter total rain in Kuala Terengganu for month12 = 
+The total rainfall for a year is 753
+The month with the lowest rainfall is month 6 which is 5 time(s)
+The month with the highest rainfall is month 11 which is 130 time(s)
+
+The month(s) where the rainfall is higher than average is :- 
+month 1
+month 2
+month 9
+month 10
+month 11
+month 12

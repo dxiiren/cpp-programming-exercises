@@ -1,0 +1,5 @@
+Program to count even and odd data
+
+Please enter data = Please enter data = Please enter data = Please enter data = Please enter data = Please enter data = Please enter data = Please enter data = Please enter data = Please enter data = 
+Total number of even number :5
+Total number of odd number :5

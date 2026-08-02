@@ -2,9 +2,10 @@
 #
 # For every golden in tests\expected\, compiles src\<name>.cpp, runs the exe
 # (stdin from sample-inputs\<name>.txt when it exists, else < NUL), and compares
-# stdout against the golden with CRLF/LF normalized. One line per program,
-# summary at the end, exit 1 on any failure. Zero changes to program source —
-# the goldens pin the programs' behavior as-is.
+# stdout against the golden with CRLF/LF normalized. A non-zero process exit code
+# is a FAIL even when stdout matches — a program that prints the right text and
+# then crashes is not passing. One line per program, summary at the end, exit 1 on
+# any failure. The goldens pin the programs' real behavior, quirks included.
 #
 # Run it via `just test` (or directly: powershell -NoProfile -File tests\run-tests.ps1).
 # stdout/stdin are redirected inside cmd on purpose — the PowerShell pipe injects
@@ -51,6 +52,17 @@ foreach ($g in $goldens) {
         cmd /c "out\$name.exe < sample-inputs\$name.txt > $actualPath"
     } else {
         cmd /c "out\$name.exe < NUL > $actualPath"
+    }
+    $code = $LASTEXITCODE
+
+    # A non-zero exit is a FAIL even when stdout matches: a program that prints the right
+    # text and then crashes (undefined behavior, a trap, an unhandled exception) is not
+    # passing. Every program here ends in `return 0`, so any other code is a real failure.
+    # Same guard both java harnesses carry.
+    if ($code -ne 0) {
+        Write-Host "[FAIL] $name — exit code $code (stdout not compared)" -ForegroundColor Red
+        $fail++
+        continue
     }
 
     $expected = ([IO.File]::ReadAllText($g.FullName)) -replace "`r`n", "`n"

@@ -1,0 +1,4 @@
+Enter the number of terms : 
+Series of number = 2/3 4/6 6/9 8/12 10/15 
+
+The total sum is = 3.33333

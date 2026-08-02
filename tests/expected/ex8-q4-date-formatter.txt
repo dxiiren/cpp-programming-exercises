@@ -1,0 +1,4 @@
+Enter day (number) = Enter month (number) = Enter year (number) = 25 December 2020
+
+Enter day (number) = Enter month (number) = Enter year (number) = 
+Wrong Data !

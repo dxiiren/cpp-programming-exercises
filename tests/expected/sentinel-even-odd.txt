@@ -1,0 +1,7 @@
+Program to count even and odd data
+
+Please enter data (Type 0 to stop) = Please enter data (Type 0 to stop) = Please enter data (Type 0 to stop) = Please enter data (Type 0 to stop) = Please enter data (Type 0 to stop) = Please enter data (Type 0 to stop) = Please enter data (Type 0 to stop) = 
+Total number of odd number is 3
+Total number of even number is 3
+The highest data is 42
+The lowest data is -100

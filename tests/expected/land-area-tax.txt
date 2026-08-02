@@ -1,0 +1,6 @@
+Tax to pay for a peice of land
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Enter the land size (acres) = 
+
+The amount to pay is RM 5250
+Thank you !

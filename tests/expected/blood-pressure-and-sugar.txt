@@ -1,0 +1,18 @@
+Program to count bp and diabetes
+
+Patient1
+Please enter number of blood pressure= Please enter number of sugar level= 
+Patient2
+Please enter number of blood pressure= Please enter number of sugar level= 
+Patient3
+Please enter number of blood pressure= Please enter number of sugar level= 
+Patient4
+Please enter number of blood pressure= Please enter number of sugar level= 
+Patient5
+Please enter number of blood pressure= Please enter number of sugar level= 
+
+Number people who have high blood pressure is : 3
+
+Number people who have diabetes is : 3
+
+Number of people who have serious health problem ( diabetes and high blood pressure ) is : 2

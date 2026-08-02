@@ -1,0 +1,19 @@
+Enter data 1 : Enter data 2 : 
+Enter data 1 : Enter data 2 : 
+Enter data 1 : Enter data 2 : 
+Enter data 1 : Enter data 2 : 
+Enter data 1 : Enter data 2 : 
+
+The list of number in array c is :- 
+25
+32
+14
+11
+57
+
+The list of number in array D is :- 
+15
+20
+9
+8
+30

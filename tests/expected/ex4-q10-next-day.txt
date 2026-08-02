@@ -1,0 +1,7 @@
+Program to count next day dd//mm/yy 
+
+Enter day (number) = Enter month (number) = Enter year (number) = The date given is : 31 / 12 / 2019
+The next day is : 1 / 1 / 2020
+
+Do you want to stop ? (Y/N) = 
+

@@ -1,0 +1,4 @@
+Calculate price after discount
+
+Type of shoes = A , B , C , D(others)
+Please enter type of shoes : Enter price of the shoe : Enter number of shoe : Total Price After Discount is = RM360
