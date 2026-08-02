@@ -1,0 +1,19 @@
+---------------------
+Calculate The Total Price of Tickets 
+---------------------
+
+---->Press Enter to continue<----
+
+1)Enter the price of the ticket =RM 
+2)Enter the number of people according to their category ;
+
+-------------------------------------------------------
+ Senior Citizen = ( 60 YEARS OLD & ABOVE )
+ Adult          = ( 13 ~> 59 YEARS OLD )
+ Children       = ( 4 ~> 12 YEARS OLD )
+ Kid            = ( 3 YEARS OLD & BELOW )
+-------------------------------------------------------
+
+Senior Citizen = Adult = Children = Kid = 
+~ The total price of the ticket is =RM 55.5 ~
+ Thank You 

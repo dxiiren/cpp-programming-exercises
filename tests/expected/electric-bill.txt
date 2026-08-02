@@ -1,0 +1,5 @@
+Calculate electric bill 
+------------------------
+Enter number of units = 
+
+Total amount to pay is =RM235

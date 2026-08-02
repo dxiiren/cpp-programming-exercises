@@ -49,6 +49,13 @@ run name: (build name)
 run-interactive name: (build name)
     & '.\out\{{name}}.exe'
 
+# The harness (tests\run-tests.ps1) rebuilds each covered program, feeds its committed
+# sample input (or nothing for the no-input demos), and diffs stdout against the goldens
+# in tests\expected\ — CRLF-normalized, one PASS/FAIL line per program, exit 1 on any fail.
+# Run the golden-output test suite over every program with a committed expected output.
+test:
+    & 'tests\run-tests.ps1'; exit $LASTEXITCODE
+
 # Remove build output.
 clean:
     if (Test-Path out) { Remove-Item -Recurse -Force out }

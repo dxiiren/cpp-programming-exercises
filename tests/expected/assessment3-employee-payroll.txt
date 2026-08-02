@@ -1,0 +1,29 @@
+MNC COMPANY
+______________
+
+Enter employee id : Enter employee name : Enter total hours of work (weekly) : 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Employee id= E001
+Employee name= Ali Bin Abu
+Total gross pay = RM380
+Total deduction = RM82.2
+Total net pay = RM297.8
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Do you want to stop ? (y/n) : 
+
+Enter employee id : Enter employee name : Enter total hours of work (weekly) : 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Employee id= E002
+Employee name= Siti Aminah
+Total gross pay = RM304
+Total deduction = RM67.76
+Total net pay = RM236.24
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Do you want to stop ? (y/n) : 
+______________________________________________________________
+The total number of employee is : 2
+The highest paid is : Ali Bin Abu , RM380
+Total underpaid employee is : 2
+______________________________________________________________
