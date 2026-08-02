@@ -14,7 +14,8 @@ Run `just` with no arguments to list recipes with their descriptions.
 | `just build-all` | Compile every program in `src\` | Stops at the first compile error (exit 1); prints `[PASS]` per file + a final `57/57 PASS` summary |
 | `just run <name>` | Build then run one program | stdin from `sample-inputs\<name>.txt` if present, else interactive with an `[INFO]` note |
 | `just run-interactive <name>` | Build then run, always reading your typed input | Use to try your own values |
-| `just test` | Golden-output suite via `tests\run-tests.ps1` | Builds + runs all 57 programs, diffs stdout (CRLF-normalized) **and checks the process exit code**; exit 1 on any fail |
+| `just test` | Golden-output suite via `tests\run-tests.ps1` | Builds + runs all 57 programs **in parallel** (~11s), diffs stdout (CRLF-normalized) **and checks the process exit code**; exit 1 on any fail. Output is sorted by name, so it reads the same as a serial run. Needs `pwsh` |
+| `just test-serial` | Same suite, one program at a time (~71s) | For a clean ordered log when a failure needs reading |
 | `just clean` | Delete `out\` | Safe — everything rebuilds |
 | `just claudex` / `claudeo` / `claudeh` | Launch Claude Code (Sonnet / Opus / Haiku), all permissions | |
 

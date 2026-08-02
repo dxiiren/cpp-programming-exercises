@@ -95,7 +95,14 @@ in `tests\expected\`, it compiles the program, runs it — stdin from
 stdout against the golden (CRLF-normalized). **A non-zero process exit code is a `[FAIL]`
 even when stdout matches** — a program that prints the right text and then crashes is not
 passing. One `[PASS]`/`[FAIL]` line per program, a summary at the end, exit 1 on any
-failure. The goldens pin each program's behavior — including the corrected behavior of the
+failure. The 57 programs are compiled and run **concurrently** (`ForEach-Object -Parallel`,
+which is why this one recipe runs under `pwsh` rather than Windows PowerShell), taking the
+suite from about 71s to about 11s. They are safe to overlap because no program shares
+anything with another: no linking, one `main()` per file, and each writes only
+`out\<name>.exe` and `out\<name>.actual.txt`. Results are printed sorted by name, so the
+output is identical to running them one at a time. Use `just test-serial` for an
+unparallelized run when a failure needs a clean log.
+The goldens pin each program's behavior — including the corrected behavior of the
 programs whose documented coursework bugs were fixed (see the fixed-bugs table in
 [`.docs/05-reference/program-catalog.md`](.docs/05-reference/program-catalog.md)); the
 remaining quirks stay pinned as-is, `ex4-q10c-next-10-weeks` included.

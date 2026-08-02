@@ -19,6 +19,12 @@ default:
 _require-gpp:
     @if (-not (Test-Path '{{gpp}}')) { Write-Error "g++ not found at {{gpp}}`n  -> Run setup.ps1 first:  pwsh ./setup.ps1"; exit 1 }
 
+# PowerShell 7 — the test harness compiles the programs in parallel, which the
+# Windows PowerShell 5.1 that runs every other recipe cannot do.
+[private]
+_require-pwsh:
+    @if (-not (Get-Command pwsh -ErrorAction SilentlyContinue)) { Write-Error "pwsh (PowerShell 7+) not found -- the test harness needs it to compile in parallel.`n  -> Run setup.ps1 first:  pwsh ./setup.ps1"; exit 1 }
+
 # ─── Build & run ─────────────────────────────────────────
 
 # List every program in the collection (one name per line — these are the `name` args).
@@ -52,9 +58,21 @@ run-interactive name: (build name)
 # The harness (tests\run-tests.ps1) rebuilds each covered program, feeds its committed
 # sample input (or nothing for the no-input demos), and diffs stdout against the goldens
 # in tests\expected\ — CRLF-normalized, one PASS/FAIL line per program, exit 1 on any fail.
+#
+# Runs under pwsh, not the powershell.exe every other recipe uses: the harness
+# compiles and runs the 57 programs concurrently via `ForEach-Object -Parallel`,
+# which is PowerShell 7+ only. setup.ps1 installs pwsh (it is what setup itself
+# is invoked with), so this is not a new prerequisite. The PASS/FAIL lines are
+# still printed sorted by name, so the output reads the same as it always did.
 # Run the golden-output test suite over every program with a committed expected output.
-test:
-    & 'tests\run-tests.ps1'; exit $LASTEXITCODE
+test: _require-pwsh
+    pwsh -NoProfile -File 'tests\run-tests.ps1'; exit $LASTEXITCODE
+
+# Same suite, one program at a time — for when a failure needs a clean, ordered
+# log, or on a machine that only has Windows PowerShell.
+# Run the golden-output test suite serially
+test-serial: _require-pwsh
+    pwsh -NoProfile -File 'tests\run-tests.ps1' -ThrottleLimit 1; exit $LASTEXITCODE
 
 # Remove build output.
 clean:

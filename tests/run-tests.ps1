@@ -10,6 +10,26 @@
 # Run it via `just test` (or directly: powershell -NoProfile -File tests\run-tests.ps1).
 # stdout/stdin are redirected inside cmd on purpose — the PowerShell pipe injects
 # a UTF-8 BOM into the first stdin line (see README Troubleshooting).
+#
+# The 57 programs are compiled and run CONCURRENTLY. Nothing is shared between
+# them: no linking, one main() per file, and each writes only out\<name>.exe and
+# out\<name>.actual.txt — names unique per program, so two workers never touch
+# the same path. No program opens a socket or a fixed file. That independence is
+# what makes this safe; if you ever add a program that binds a port or writes a
+# fixed filename, it has to be excluded from the parallel set.
+#
+# Two things the parallel block must NOT rely on:
+#   * the current directory — a runspace does not reliably inherit the caller's
+#     location, so every path handed to g++ or cmd here is absolute;
+#   * output ordering — workers finish out of order, so results are collected as
+#     objects and printed sorted by name afterwards. The printed output is byte
+#     for byte what the serial version produced.
+[CmdletBinding()]
+param(
+    # Compiling is CPU-bound, so this tracks core count rather than program
+    # count. Override to 1 to get the old serial behaviour back when debugging.
+    [int]$ThrottleLimit = [Environment]::ProcessorCount
+)
 
 $repo = Split-Path -Parent $PSScriptRoot
 $gppbin = Join-Path $env:LOCALAPPDATA 'Programs\w64devkit\bin'
@@ -30,28 +50,39 @@ if ($goldens.Count -eq 0) {
     exit 1
 }
 
-$pass = 0
-$fail = 0
-foreach ($g in $goldens) {
+$results = $goldens | ForEach-Object -ThrottleLimit $ThrottleLimit -Parallel {
+    $repo = $using:repo
+    $gpp = $using:gpp
+    # $env: is process-wide, so the prepend above already applies here — but a
+    # runspace may start before that assignment is visible, and g++ dies with
+    # `cannot execute 'as'` when it is not. Cheap to make certain.
+    $env:Path = "$($using:gppbin);$env:Path"
+
+    $g = $_
     $name = $g.BaseName
-    if (-not (Test-Path "src\$name.cpp")) {
-        Write-Host "[FAIL] $name — golden exists but src\$name.cpp does not" -ForegroundColor Red
-        $fail++
-        continue
-    }
-
-    & $gpp -o "out\$name.exe" "src\$name.cpp"
-    if ($LASTEXITCODE -ne 0) {
-        Write-Host "[FAIL] $name — compile error" -ForegroundColor Red
-        $fail++
-        continue
-    }
-
+    $srcPath = Join-Path $repo "src\$name.cpp"
+    $exePath = Join-Path $repo "out\$name.exe"
     $actualPath = "out\$name.actual.txt"
-    if (Test-Path "sample-inputs\$name.txt") {
-        cmd /c "out\$name.exe < sample-inputs\$name.txt > $actualPath"
+    $actualFull = Join-Path $repo $actualPath
+    $inputPath = Join-Path $repo "sample-inputs\$name.txt"
+
+    if (-not (Test-Path $srcPath)) {
+        return [pscustomobject]@{ Name = $name; Ok = $false; Line = "[FAIL] $name — golden exists but src\$name.cpp does not" }
+    }
+
+    & $gpp -o $exePath $srcPath
+    if ($LASTEXITCODE -ne 0) {
+        return [pscustomobject]@{ Name = $name; Ok = $false; Line = "[FAIL] $name — compile error" }
+    }
+
+    # Absolute paths, and the redirection still happens inside cmd rather than
+    # through a PowerShell pipe — the pipe injects a UTF-8 BOM into the first
+    # stdin line (see README Troubleshooting). cmd strips the outermost pair of
+    # quotes, which is why the whole command is wrapped in its own pair.
+    if (Test-Path $inputPath) {
+        cmd /c "`"$exePath`" < `"$inputPath`" > `"$actualFull`""
     } else {
-        cmd /c "out\$name.exe < NUL > $actualPath"
+        cmd /c "`"$exePath`" < NUL > `"$actualFull`""
     }
     $code = $LASTEXITCODE
 
@@ -60,27 +91,37 @@ foreach ($g in $goldens) {
     # passing. Every program here ends in `return 0`, so any other code is a real failure.
     # Same guard both java harnesses carry.
     if ($code -ne 0) {
-        Write-Host "[FAIL] $name — exit code $code (stdout not compared)" -ForegroundColor Red
-        $fail++
-        continue
+        return [pscustomobject]@{ Name = $name; Ok = $false; Line = "[FAIL] $name — exit code $code (stdout not compared)" }
     }
 
     $expected = ([IO.File]::ReadAllText($g.FullName)) -replace "`r`n", "`n"
-    $actual = ([IO.File]::ReadAllText((Join-Path $repo $actualPath))) -replace "`r`n", "`n"
+    $actual = ([IO.File]::ReadAllText($actualFull)) -replace "`r`n", "`n"
     if ($expected -eq $actual) {
-        Write-Host "[PASS] $name" -ForegroundColor Green
+        return [pscustomobject]@{ Name = $name; Ok = $true; Line = "[PASS] $name" }
+    }
+
+    $expLines = $expected -split "`n"
+    $actLines = $actual -split "`n"
+    $max = [Math]::Max($expLines.Count, $actLines.Count)
+    $firstDiff = 0
+    for ($i = 0; $i -lt $max; $i++) {
+        $e = if ($i -lt $expLines.Count) { $expLines[$i] } else { $null }
+        $a = if ($i -lt $actLines.Count) { $actLines[$i] } else { $null }
+        if ($e -cne $a) { $firstDiff = $i + 1; break }
+    }
+    [pscustomobject]@{ Name = $name; Ok = $false; Line = "[FAIL] $name — first difference at line $firstDiff (see $actualPath vs tests\expected\$name.txt)" }
+}
+
+# Sorted, so the report reads identically to the serial harness no matter what
+# order the workers happened to finish in.
+$pass = 0
+$fail = 0
+foreach ($r in ($results | Sort-Object Name)) {
+    if ($r.Ok) {
+        Write-Host $r.Line -ForegroundColor Green
         $pass++
     } else {
-        $expLines = $expected -split "`n"
-        $actLines = $actual -split "`n"
-        $max = [Math]::Max($expLines.Count, $actLines.Count)
-        $firstDiff = 0
-        for ($i = 0; $i -lt $max; $i++) {
-            $e = if ($i -lt $expLines.Count) { $expLines[$i] } else { $null }
-            $a = if ($i -lt $actLines.Count) { $actLines[$i] } else { $null }
-            if ($e -cne $a) { $firstDiff = $i + 1; break }
-        }
-        Write-Host "[FAIL] $name — first difference at line $firstDiff (see $actualPath vs tests\expected\$name.txt)" -ForegroundColor Red
+        Write-Host $r.Line -ForegroundColor Red
         $fail++
     }
 }
