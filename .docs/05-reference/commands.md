@@ -14,6 +14,7 @@ Run `just` with no arguments to list recipes with their descriptions.
 | `just build-all` | Compile every program in `src\` | Stops at the first compile error (exit 1); prints `[PASS]` per file + a final `57/57 PASS` summary |
 | `just run <name>` | Build then run one program | stdin from `sample-inputs\<name>.txt` if present, else interactive with an `[INFO]` note |
 | `just run-interactive <name>` | Build then run, always reading your typed input | Use to try your own values |
+| `just test` | Golden-output suite via `tests\run-tests.ps1` | Builds + runs the 11 programs with a golden in `tests\expected\`, diffs stdout (CRLF-normalized); exit 1 on any fail |
 | `just clean` | Delete `out\` | Safe — everything rebuilds |
 | `just claudex` / `claudeo` / `claudeh` | Launch Claude Code (Sonnet / Opus / Haiku), all permissions | |
 
@@ -27,6 +28,11 @@ Run `just` with no arguments to list recipes with their descriptions.
   injects a UTF-8 BOM into the first stdin line, which garbles a numeric first read.
 - Sample inputs exist for: `assessment3-employee-payroll`, `movie-ticket`,
   `electric-bill`, `fibonacci-series`.
+- `test` covers those 4 plus the 7 no-input programs (`boolean`, `ex3-q6a/b/c-pattern`,
+  `increment-operators`, `sum-of-odd-numbers`, `test`) — 11 of 57. The remaining 46 are
+  interactive stdin programs without a committed sample input, so they have no golden.
+  The harness reuses the justfile's PATH-prepend and cmd-redirect patterns and writes each
+  run's stdout to `out\<name>.actual.txt` (git-ignored) for diffing on failure.
 
 ## Related docs
 

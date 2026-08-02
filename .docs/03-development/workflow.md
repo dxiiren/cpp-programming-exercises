@@ -15,10 +15,13 @@
    just build <name>       # compile just your program
    just run <name>         # run it (sample input or interactive)
    just build-all          # the collection gate: 57/57 PASS expected
+   just test               # the output gate: 11/11 PASS expected (golden diffs)
    ```
 4. **Input contract** — if you add/reorder a `cin >>`/`getline`, mirror it in that
    program's `sample-inputs\<name>.txt` (exact read order; a y/n loop needs its final
-   `y`). A drifted file makes the run hang forever, not crash.
+   `y`). A drifted file makes the run hang forever, not crash. If the program has a
+   golden in `tests\expected\` and its intended output changed, regenerate the golden
+   from a verified run (the failing run's stdout is at `out\<name>.actual.txt`).
 5. **Review** — `/pre-pr-review` for the checklist; `/lint-check` for the warning +
    build-all gates.
 6. **Commit / PR** — `/commit` (Conventional Commits, scopes: `src`, `input`, `tooling`,

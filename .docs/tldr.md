@@ -17,9 +17,9 @@ gh — idempotent), reopen PowerShell, then `just list`, `just build-all` (expec
 ## [03-development/workflow.md](03-development/workflow.md)
 
 Branch, edit one standalone program, `just build <name>` + `just run <name>`, keep
-`sample-inputs\<name>.txt` in sync with any cin change, `just build-all` as the gate, then
-`/pre-pr-review`, `/commit`, `/create-pr`. House rules: preserve coursework quirks, no
-build-system creep, never commit `out\`.
+`sample-inputs\<name>.txt` in sync with any cin change, `just build-all` + `just test`
+(11/11 golden diffs) as the gates, then `/pre-pr-review`, `/commit`, `/create-pr`. House
+rules: preserve coursework quirks, no build-system creep, never commit `out\`.
 
 ## [04-deployment/deployment.md](04-deployment/deployment.md)
 
@@ -31,8 +31,9 @@ you ever must hand one over.
 
 The just recipes: `list`, `build <name>`, `build-all` (stops at first error, prints
 PASS/FAIL summary), `run <name>` (canned stdin when a sample exists, else interactive),
-`run-interactive <name>`, `clean`, plus the claude launchers. Explains the pinned g++
-path, the PATH-prepend for `as`, and the BOM-avoiding cmd redirect.
+`run-interactive <name>`, `test` (golden-output suite over 11 covered programs), `clean`,
+plus the claude launchers. Explains the pinned g++ path, the PATH-prepend for `as`, and
+the BOM-avoiding cmd redirect.
 
 ## [05-reference/program-catalog.md](05-reference/program-catalog.md)
 
@@ -43,8 +44,8 @@ coursework quirks that are preserved on purpose.
 ## [05-reference/project-layout.md](05-reference/project-layout.md)
 
 Annotated tree: flat `src/` (one `main()` per file), `sample-inputs/` named after their
-programs, git-ignored `out/`, `.docs/`, `.claude/`, `justfile`, `setup.ps1`. Naming
-conventions for drills vs lab exercises.
+programs, `tests/` (golden harness + expected outputs), git-ignored `out/`, `.docs/`,
+`.claude/`, `justfile`, `setup.ps1`. Naming conventions for drills vs lab exercises.
 
 ## [06-troubleshooting/common-issues.md](06-troubleshooting/common-issues.md)
 

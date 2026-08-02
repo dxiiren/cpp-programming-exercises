@@ -51,6 +51,7 @@ Run `just` with no arguments to list every recipe. The ones you'll use daily:
 | `just build-all` | Compile all 57 programs; stop at the first error; print a PASS/FAIL summary |
 | `just run <name>` | Compile, then run — `sample-inputs\<name>.txt` as stdin if present, else interactive |
 | `just run-interactive <name>` | Compile, then run reading YOUR typed input |
+| `just test` | Golden-output suite: build + run the 11 covered programs, diff stdout vs `tests\expected\` |
 | `just clean` | Delete the compiled `out\` folder |
 | `just claudex` | Launch Claude Code (Sonnet, all permissions) |
 
@@ -85,6 +86,29 @@ Senior Citizen = Adult = Children = Kid =
 
 (Compile lines from the `build` recipe omitted. The prompts run together because stdin is
 redirected, so nothing is echoed between them — see Troubleshooting below.)
+
+## Testing
+
+`just test` runs the golden-output harness (`tests\run-tests.ps1`): for every golden file
+in `tests\expected\`, it compiles the program, runs it — stdin from
+`sample-inputs\<name>.txt` when one exists, `< NUL` for the no-input demos — and diffs
+stdout against the golden (CRLF-normalized). One `[PASS]`/`[FAIL]` line per program, a
+summary at the end, exit 1 on any failure. The programs themselves are untouched: the
+goldens pin their output as-is, coursework quirks included.
+
+**Coverage: 11 of 57 programs.**
+
+| Group | Count | Programs |
+| --- | --- | --- |
+| Committed sample input | 4 | `assessment3-employee-payroll`, `electric-bill`, `fibonacci-series`, `movie-ticket` |
+| No stdin (deterministic demos/patterns) | 7 | `boolean`, `ex3-q6a-pattern`, `ex3-q6b-pattern`, `ex3-q6c-pattern`, `increment-operators`, `sum-of-odd-numbers`, `test` |
+
+The other 46 programs are **excluded** because they read stdin interactively and have no
+committed sample input — there is nothing deterministic to pin. No program in the
+collection uses timestamps or `rand()`, so none is excluded for nondeterminism. To cover
+another program, commit a `sample-inputs\<name>.txt` matching its exact cin read order,
+run it once via `just run <name>`, and save the verified stdout as
+`tests\expected\<name>.txt`.
 
 ## Program catalog
 
@@ -223,6 +247,7 @@ More in [`.docs/06-troubleshooting/common-issues.md`](.docs/06-troubleshooting/c
 cpp-programming-exercises/
   src/                     # 57 standalone programs — one main() per .cpp, kebab-case names
   sample-inputs/           # canned stdin for `just run` (4 programs covered)
+  tests/                   # golden-output harness: run-tests.ps1 + expected/ (11 goldens)
   out/                     # compiled exes from `just build`/`build-all` — git-ignored
   .docs/                   # numbered documentation set — start at .docs/tldr.md
   .claude/                 # Claude Code skills, hooks, settings
